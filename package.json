@@ -46,7 +46,7 @@
   "devDependencies": {
     "del": "^6.1.1",
     "execa": "^5.1.1",
-    "f2elint": "^2.0.1",
+    "f2elint": "^4.9.0",
     "gulp": "^4.0.2",
     "husky": "^7.0.4",
     "lerna": "^4.0.0",
@@ -59,7 +59,7 @@
     "@alilc/lowcode-test-mate": "^1.0.1"
   },
   "engines": {
-    "node": ">=14.17.0 <18"
+    "node": ">=16"
   },
   "tnpm": {
     "mode": "yarn",
