@@ -67,6 +67,7 @@ export class Detecting implements IDetecting {
   leave(document: IDocumentModel | undefined) {
     if (this.current && this.current.document === document) {
       this._current = null;
+      this.emitter.emit(DETECTING_CHANGE_EVENT, this.current);
     }
   }
 
