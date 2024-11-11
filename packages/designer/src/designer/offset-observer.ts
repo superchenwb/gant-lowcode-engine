@@ -88,7 +88,7 @@ export class OffsetObserver {
   }
 
   @computed get scale() {
-    return this.viewport.scale;
+    return this.viewport?.scale;
   }
 
   private pid: number | undefined;

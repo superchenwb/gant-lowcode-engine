@@ -8,6 +8,7 @@ import BorderResizing from './border-resizing';
 import { InsertionView } from './insertion';
 import './bem-tools.less';
 import './borders.less';
+import { Dropdown, MenuProps } from 'antd';
 
 @observer
 export class BemTools extends Component<{ host: BuiltinSimulatorHost }> {
@@ -18,20 +19,39 @@ export class BemTools extends Component<{ host: BuiltinSimulatorHost }> {
     if (designMode === 'live') {
       return null;
     }
+    const items: MenuProps['items'] = [
+      {
+        label: '1st menu item',
+        key: '1',
+      },
+      {
+        label: '2nd menu item',
+        key: '2',
+      },
+      {
+        label: '3rd menu item',
+        key: '3',
+      },
+    ];
     return (
-      <div className="lc-bem-tools" style={{ transform: `translate(${-scrollX * scale}px,${-scrollY * scale}px)` }}>
-        { !engineConfig.get('disableDetecting') && <BorderDetecting key="hovering" host={host} /> }
-        <BorderSelecting key="selecting" host={host} />
-        { engineConfig.get('enableReactiveContainer') && <BorderContainer key="reactive-container-border" host={host} /> }
-        <InsertionView key="insertion" host={host} />
-        <BorderResizing key="resizing" host={host} />
-        {
-          host.designer.bemToolsManager.getAllBemTools().map(tools => {
+      <Dropdown  menu={{ items }} trigger={['contextMenu']}>
+        <div
+          className="lc-bem-tools"
+          style={{ transform: `translate(${-scrollX * scale}px,${-scrollY * scale}px)` }}
+        >
+          {!engineConfig.get('disableDetecting') && <BorderDetecting key="hovering" host={host} />}
+          <BorderSelecting key="selecting" host={host} />
+          {engineConfig.get('enableReactiveContainer') && (
+            <BorderContainer key="reactive-container-border" host={host} />
+          )}
+          <InsertionView key="insertion" host={host} />
+          <BorderResizing key="resizing" host={host} />
+          {host.designer.bemToolsManager.getAllBemTools().map((tools) => {
             const ToolsCls = tools.item;
             return <ToolsCls key={tools.name} host={host} />;
-          })
-        }
-      </div>
+          })}
+        </div>
+      </Dropdown>
     );
   }
 }

@@ -1,12 +1,10 @@
 import {
   Component,
   Fragment,
-  ReactNodeArray,
   isValidElement,
   cloneElement,
   createElement,
   ReactNode,
-  ComponentType,
 } from 'react';
 import classNames from 'classnames';
 import { observer, computed, Tip, engineConfig } from '@alilc/lowcode-editor-core';
@@ -54,11 +52,8 @@ export class BorderSelectingInstance extends Component<{
     }
 
     return (
-      <div
-        className={className}
-        style={style}
-      >
-        {(!dragging && !hideComponentAction) ? <Toolbar observed={observed} /> : null}
+      <div className={className} style={style}>
+        {!dragging && !hideComponentAction ? <Toolbar observed={observed} /> : null}
       </div>
     );
   }
@@ -68,10 +63,10 @@ export class BorderSelectingInstance extends Component<{
 class Toolbar extends Component<{ observed: OffsetObserver }> {
   render() {
     const { observed } = this.props;
-    const { height, width } = observed.viewport;
-    const BAR_HEIGHT = 20;
+    const { height, width } = observed.viewport || { height: 0, width: 0 };
+    const BAR_HEIGHT = 24;
     const MARGIN = 1;
-    const BORDER = 2;
+    const BORDER = 1;
     const SPACE_HEIGHT = BAR_HEIGHT + MARGIN + BORDER;
     const SPACE_MINIMUM_WIDTH = 160; // magic number，大致是 toolbar 的宽度
     let style: any;
@@ -100,27 +95,37 @@ class Toolbar extends Component<{ observed: OffsetObserver }> {
       style.justifyContent = 'flex-start';
     }
     const { node } = observed;
-    const actions: ReactNodeArray = [];
+    const actions: React.JSX.Element[] = [];
     node.componentMeta.availableActions.forEach((action) => {
       const { important = true, condition, content, name } = action;
       if (node.isSlot() && (name === 'copy' || name === 'remove')) {
         // FIXME: need this?
         return;
       }
-      if (important && (typeof condition === 'function' ? condition(node) !== false : condition !== false)) {
-        actions.push(createAction(content, name, node));
+      if (
+        important &&
+        (typeof condition === 'function' ? condition(node) !== false : condition !== false)
+      ) {
+        const action = createAction(content, name, node);
+        if (action) {
+          actions.push(action);
+        }
       }
     });
     return (
-      <div className="lc-borders-actions" style={style}>
-        {actions}
+      <div className="lc-borders-toolbar" style={style}>
+        <div className="lc-borders-actions">{actions}</div>
         <NodeSelector node={node} />
       </div>
     );
   }
 }
 
-function createAction(content: ReactNode | ComponentType<any> | IPublicTypeActionContentObject, key: string, node: INode) {
+function createAction(
+  content: ReactNode | IPublicTypeActionContentObject,
+  key: string,
+  node: INode,
+) {
   if (isValidElement<{ key: string; node: INode }>(content)) {
     return cloneElement(content, { key, node });
   }
@@ -147,7 +152,7 @@ function createAction(content: ReactNode | ComponentType<any> | IPublicTypeActio
           });
         }}
       >
-        {icon && createIcon(icon, { key, node: node.internalToShellNode() })}
+        {icon && createIcon(icon, { key, node: node.internalToShellNode(), size: 'small' })}
         <Tip>{title}</Tip>
       </div>
     );
@@ -187,7 +192,13 @@ export class BorderSelectingForNode extends Component<{ host: ISimulatorHost; no
           if (!observed) {
             return null;
           }
-          return <BorderSelectingInstance key={observed.id} dragging={this.dragging} observed={observed} />;
+          return (
+            <BorderSelectingInstance
+              key={observed.id}
+              dragging={this.dragging}
+              observed={observed}
+            />
+          );
         })}
       </Fragment>
     );

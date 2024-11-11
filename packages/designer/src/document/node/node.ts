@@ -81,6 +81,8 @@ export interface IBaseNode<Schema extends IPublicTypeNodeSchema = IPublicTypeNod
 
   getParent(): INode | null;
 
+  getParents(node?: INode): INode[];
+
   /**
    * 内部方法，请勿使用
    * @param useMutator 是否触发联动逻辑
@@ -1138,6 +1140,13 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema> 
 
   getParent() {
     return this.parent;
+  }
+
+  getParents(node?: INode): INode[] {
+    const _node = node || this
+    return _node?.parent
+      ? [_node.parent].concat(this.getParents(_node.parent))
+      : []
   }
 
   getId() {
