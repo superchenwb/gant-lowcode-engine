@@ -1,7 +1,6 @@
 import { IPublicTypeContextMenuAction, IPublicEnumContextMenuType, IPublicTypeContextMenuItem, IPublicApiMaterial, IPublicModelPluginContext } from '@alilc/lowcode-types';
 import { IDesigner, INode } from './designer';
 import { createContextMenu, parseContextMenuAsReactNode, parseContextMenuProperties, uniqueId } from '@alilc/lowcode-utils';
-import { Menu } from '@alifd/next';
 import { engineConfig } from '@alilc/lowcode-editor-core';
 import './context-menu-actions.scss';
 
@@ -66,7 +65,6 @@ export class GlobalContextMenuActions {
       event,
       pluginContext,
     });
-
     if (!menus.length) {
       return;
     }
@@ -83,14 +81,10 @@ export class GlobalContextMenuActions {
 
     const { top, left } = target?.getBoundingClientRect();
 
-    const menuInstance = Menu.create({
-      target: event.target,
+    destroyFn = createContextMenu(menuNode, {
+      event,
       offset: [event.clientX - left, event.clientY - top],
-      children: menuNode,
-      className: 'engine-context-menu',
     });
-
-    destroyFn = (menuInstance as any).destroy;
   };
 
   initEvent() {
@@ -130,7 +124,6 @@ export class ContextMenuActions implements IContextMenuActions {
   constructor(designer: IDesigner) {
     this.designer = designer;
     this.dispose = [];
-
     engineConfig.onGot('enableContextMenu', (enable) => {
       if (this.enableContextMenu === enable) {
         return;
@@ -172,7 +165,7 @@ export class ContextMenuActions implements IContextMenuActions {
       event,
       pluginContext,
     });
-
+    console.log('context--menus', actions, menus, )
     if (!menus.length) {
       return;
     }
@@ -184,7 +177,6 @@ export class ContextMenuActions implements IContextMenuActions {
       nodes: nodes.map(d => designer.shellModelFactory.createNode(d)!),
       pluginContext,
     });
-
     destroyFn = createContextMenu(menuNode, {
       event,
       offset: [simulatorLeft, simulatorTop],

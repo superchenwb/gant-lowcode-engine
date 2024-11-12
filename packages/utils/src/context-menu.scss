@@ -1,50 +1,33 @@
 .engine-context-menu-tree-wrap {
   position: relative;
   padding: 4px 10px 4px 32px;
+
+  .engine-context-menu-title {
+    padding: 5px;
+    line-height: 22px;
+    white-space: nowrap;
+  }
+}
+
+.engine-context-menu-text {
+  display: flex;
+  align-items: center;
+
+
+  .lc-help-tip {
+    margin-left: 4px;
+    opacity: 0.8;
+  }
 }
 
 .engine-context-menu-tree-children {
   margin-left: 8px;
-  line-height: 24px;
-}
-
-.engine-context-menu-item {
-  .engine-context-menu-text {
-    color: var(--color-context-menu-text, var(--color-text));
-    display: flex;
-    align-items: center;
-
-    .lc-help-tip {
-      margin-left: 4px;
-      opacity: 0.8;
-    }
-  }
-
-  &.disabled {
-    &:hover .engine-context-menu-text, .engine-context-menu-text {
-      color: var(--color-context-menu-text-disabled, var(--color-text-disabled));
-    }
-  }
-
-  &:hover {
-    .engine-context-menu-text {
-      color: var(--color-context-menu-text-hover, var(--color-title));
-    }
-  }
-}
-
-.engine-context-menu-title {
-  color: var(--color-context-menu-text, var(--color-text));
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--color-block-background-light);
-    color: var(--color-title);
-  }
+  line-height: 22px;
 }
 
 .engine-context-menu-tree-selecte-icon {
   position: absolute;
   left: 10px;
+  height: 22px;
   color: var(--color-icon-active);
 }

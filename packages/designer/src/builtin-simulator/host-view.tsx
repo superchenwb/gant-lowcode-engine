@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { observer } from '@alilc/lowcode-editor-core';
 import { BuiltinSimulatorHost, BuiltinSimulatorProps } from './host';
 import { BemTools } from './bem-tools';
+import { NodeContextMenu } from './node-context-menu';
 import { Project } from '../project';
 import './host.less';
 
@@ -60,6 +61,7 @@ class Canvas extends Component<{ host: BuiltinSimulatorHost }> {
       <div className={className} style={canvas}>
         <div ref={(elmt) => sim.mountViewport(elmt)} className="lc-simulator-canvas-viewport" style={viewport}>
           <BemTools host={sim} />
+          <NodeContextMenu host={sim} />
           <Content host={sim} />
         </div>
       </div>
