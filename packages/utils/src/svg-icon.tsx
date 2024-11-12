@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 
-const SizePresets: any = {
+export const SizePresets: any = {
   xsmall: 8,
   small: 14,
   medium: 16,
@@ -30,7 +30,6 @@ export function SVGIcon({
   if (SizePresets.hasOwnProperty(size)) {
     size = SizePresets[size];
   }
-
   return (
     <svg
       fill="currentColor"

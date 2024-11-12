@@ -34,6 +34,7 @@
   }
 
   &-actions {
+    display: flex;
     background-color: #fff;
     box-shadow:
       0 6px 16px 0 rgba(0, 0, 0, 0.08),
@@ -52,14 +53,21 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #f7f9ff;
+
     opacity: 1;
     max-height: 100%;
     overflow: hidden;
     color: #333;
     &:hover {
-      background: #e0eafc;
+      background: #f7f9ff;
       color: var(--color-brand-light, #0045e6);
+    }
+
+    .lc-borders-action-text {
+      font-size: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 

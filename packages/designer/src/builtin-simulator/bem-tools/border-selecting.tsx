@@ -1,11 +1,4 @@
-import {
-  Component,
-  Fragment,
-  isValidElement,
-  cloneElement,
-  createElement,
-  ReactNode,
-} from 'react';
+import { Component, Fragment, isValidElement, cloneElement, createElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { observer, computed, Tip, engineConfig } from '@alilc/lowcode-editor-core';
 import { createIcon, isReactComponent, isActionContentObject } from '@alilc/lowcode-utils';
@@ -152,7 +145,11 @@ function createAction(
           });
         }}
       >
-        {icon && createIcon(icon, { key, node: node.internalToShellNode(), size: 'small' })}
+        {icon ? (
+          createIcon(icon, { key, node: node.internalToShellNode(), size: 'small' })
+        ) : (
+          <div className="lc-borders-action-text">{title}</div>
+        )}
         <Tip>{title}</Tip>
       </div>
     );
