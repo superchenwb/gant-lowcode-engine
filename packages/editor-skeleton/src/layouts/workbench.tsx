@@ -13,6 +13,7 @@ import RightArea from './right-area';
 import './workbench.less';
 import { SkeletonContext } from '../context';
 import { EditorConfig, PluginClassSet } from '@alilc/lowcode-types';
+import { Splitter } from 'antd';
 
 @observer
 export class Workbench extends Component<{
@@ -29,11 +30,7 @@ export class Workbench extends Component<{
   }
 
   render() {
-    const {
-      skeleton,
-      className,
-      topAreaItemClassName,
-    } = this.props;
+    const { skeleton, className, topAreaItemClassName } = this.props;
     return (
       <div className={classNames('lc-workbench', className)}>
         <SkeletonContext.Provider value={this.props.skeleton}>
@@ -42,12 +39,18 @@ export class Workbench extends Component<{
             <LeftArea area={skeleton.leftArea} />
             <LeftFloatPane area={skeleton.leftFloatArea} />
             <LeftFixedPane area={skeleton.leftFixedArea} />
-            <div className="lc-workbench-center">
-              <Toolbar area={skeleton.toolbar} />
-              <MainArea area={skeleton.mainArea} />
-              <BottomArea area={skeleton.bottomArea} />
-            </div>
-            <RightArea area={skeleton.rightArea} />
+            <Splitter>
+              <Splitter.Panel>
+                <div className="lc-workbench-center">
+                  <Toolbar area={skeleton.toolbar} />
+                  <MainArea area={skeleton.mainArea} />
+                  <BottomArea area={skeleton.bottomArea} />
+                </div>
+              </Splitter.Panel>
+              <Splitter.Panel defaultSize={400} min={400} max={'50%'}>
+                <RightArea area={skeleton.rightArea} />
+              </Splitter.Panel>
+            </Splitter>
           </div>
           <TipContainer />
         </SkeletonContext.Provider>
