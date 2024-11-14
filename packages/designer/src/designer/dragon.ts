@@ -361,7 +361,9 @@ export class Dragon implements IDragon {
               node: tarNode,
             });
             const selection = designer.project.currentDocument?.selection;
-            selection?.select(tarNode.id);
+            if (!selection?.hasAnchord) {
+              selection?.select(tarNode.id);
+            }
           }
         }
       }

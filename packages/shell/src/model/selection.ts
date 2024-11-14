@@ -22,6 +22,13 @@ export class Selection implements IPublicModelSelection {
   }
 
   /**
+   * 是否存在锚定节点
+   */
+  get hasAnchord(): boolean {
+    return this[selectionSymbol].hasAnchord;
+  }
+
+  /**
    * return selected Node instance
    */
   get node(): IPublicModelNode | null {

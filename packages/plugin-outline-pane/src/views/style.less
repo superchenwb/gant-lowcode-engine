@@ -281,6 +281,7 @@
 
       .tree-node-hide-btn,
       .tree-node-lock-btn,
+      .tree-node-anchor-btn,
       .tree-node-rename-btn,
       .tree-node-delete-btn {
         opacity: 0;
@@ -298,6 +299,7 @@
       &:hover {
         .tree-node-hide-btn,
         .tree-node-lock-btn,
+        .tree-node-anchor-btn,
         .tree-node-rename-btn,
         .tree-node-delete-btn {
           opacity: 0.5;
@@ -307,6 +309,7 @@
         // FIXME: only hide hover shows
         .tree-node-hide-btn,
         .tree-node-lock-btn,
+        .tree-node-anchor-btn,
         .tree-node-rename-btn {
           display: none;
         }
@@ -314,6 +317,7 @@
       &.editing {
         & > .tree-node-hide-btn,
         & > .tree-node-lock-btn,
+        & > .tree-node-anchor-btn,
         & > .tree-node-rename-btn,
         & > .tree-node-delete-btn {
           display: none;
@@ -397,6 +401,18 @@
           opacity: 0;
         }
       }
+    }
+
+    &.anchored {
+      & > .tree-node-title > .tree-node-anchor-btn {
+        opacity: 0.8;
+      }
+      // .tree-node-branches {
+      //   .tree-node-anchor-btn,
+      //   .tree-node-hide-btn {
+      //     opacity: 0;
+      //   }
+      // }
     }
 
     // 处理拖入节点

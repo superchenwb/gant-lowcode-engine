@@ -70,6 +70,7 @@ export default class TreeView extends PureComponent<{
     const { id } = node;
     const isMulti = e.metaKey || e.ctrlKey || e.shiftKey;
     canvas.activeTracker?.track(node);
+    if (selection?.hasAnchord) return;
     if (isMulti && focusNode && !node.contains(focusNode) && selection?.has(id)) {
       if (!isFormEvent(e.nativeEvent)) {
         selection.remove(id);

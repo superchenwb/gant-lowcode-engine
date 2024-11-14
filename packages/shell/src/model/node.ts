@@ -1,7 +1,4 @@
-import {
-  IDocumentModel as InnerDocumentModel,
-  INode as InnerNode,
-} from '@alilc/lowcode-designer';
+import { IDocumentModel as InnerDocumentModel, INode as InnerNode } from '@alilc/lowcode-designer';
 import {
   IPublicTypeCompositeValue,
   IPublicTypeNodeSchema,
@@ -207,6 +204,13 @@ export class Node implements IPublicModelNode {
    */
   get isLocked(): boolean {
     return this[nodeSymbol].isLocked;
+  }
+
+  /**
+   * 获取当前节点的锚定状态
+   */
+  get isAnchored(): boolean {
+    return this[nodeSymbol].isAnchored;
   }
 
   /**
@@ -434,6 +438,14 @@ export class Node implements IPublicModelNode {
   }
 
   /**
+   * 设置节点锚定状态
+   * @param flag
+   */
+  anchored(flag?: boolean): void {
+    this[nodeSymbol].anchored(flag);
+  }
+
+  /**
    * @deprecated use .props instead
    */
   getProps() {
@@ -518,9 +530,9 @@ export class Node implements IPublicModelNode {
    * @returns
    */
   exportSchema(
-      stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render,
-      options?: any,
-    ): IPublicTypeNodeSchema {
+    stage: IPublicEnumTransformStage = IPublicEnumTransformStage.Render,
+    options?: any,
+  ): IPublicTypeNodeSchema {
     return this[nodeSymbol].export(stage, options);
   }
 
@@ -531,15 +543,15 @@ export class Node implements IPublicModelNode {
    * @param useMutator
    */
   insertBefore(
-      node: IPublicModelNode,
-      ref?: IPublicModelNode | undefined,
-      useMutator?: boolean,
-    ): void {
+    node: IPublicModelNode,
+    ref?: IPublicModelNode | undefined,
+    useMutator?: boolean,
+  ): void {
     this[nodeSymbol].insertBefore(
-        (node as any)[nodeSymbol] || node,
-        (ref as any)?.[nodeSymbol],
-        useMutator,
-      );
+      (node as any)[nodeSymbol] || node,
+      (ref as any)?.[nodeSymbol],
+      useMutator,
+    );
   }
 
   /**
@@ -549,15 +561,15 @@ export class Node implements IPublicModelNode {
    * @param useMutator
    */
   insertAfter(
-      node: IPublicModelNode,
-      ref?: IPublicModelNode | undefined,
-      useMutator?: boolean,
-    ): void {
+    node: IPublicModelNode,
+    ref?: IPublicModelNode | undefined,
+    useMutator?: boolean,
+  ): void {
     this[nodeSymbol].insertAfter(
-        (node as any)[nodeSymbol] || node,
-        (ref as any)?.[nodeSymbol],
-        useMutator,
-      );
+      (node as any)[nodeSymbol] || node,
+      (ref as any)?.[nodeSymbol],
+      useMutator,
+    );
   }
 
   /**
@@ -657,14 +669,8 @@ export class Node implements IPublicModelNode {
   }
 
   getRGL() {
-    const {
-      isContainerNode,
-      isEmptyNode,
-      isRGLContainerNode,
-      isRGLNode,
-      isRGL,
-      rglNode,
-    } = this[nodeSymbol].getRGL();
+    const { isContainerNode, isEmptyNode, isRGLContainerNode, isRGLNode, isRGL, rglNode } =
+      this[nodeSymbol].getRGL();
 
     return {
       isContainerNode,

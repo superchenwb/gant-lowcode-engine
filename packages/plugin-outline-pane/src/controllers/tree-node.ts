@@ -30,8 +30,6 @@ enum EVENT_NAMES {
 
   hiddenChanged = 'hiddenChanged',
 
-  lockedChanged = 'lockedChanged',
-
   titleLabelChanged = 'titleLabelChanged',
 
   expandableChanged = 'expandableChanged',
@@ -107,6 +105,10 @@ export default class TreeNode {
     return this.node.isLocked;
   }
 
+  get anchored(): boolean {
+    return this.node.isAnchored;
+  }
+
   get selected(): boolean {
     // TODO: check is dragging
     const selection = this.pluginContext.project.getCurrentDocument()?.selection;
@@ -176,11 +178,16 @@ export default class TreeNode {
 
   setLocked(flag: boolean) {
     this.node.lock(flag);
-    this.event.emit(EVENT_NAMES.lockedChanged, flag);
   }
+
+  setAnchored(flag: boolean) {
+    this.node.anchored(flag);
+  }
+
   deleteNode(node: IPublicModelNode) {
     node && node.remove();
   }
+
   onFilterResultChanged(fn: () => void): IPublicTypeDisposable {
     this.event.on(EVENT_NAMES.filterResultChanged, fn);
     return () => {
@@ -197,12 +204,6 @@ export default class TreeNode {
     this.event.on(EVENT_NAMES.hiddenChanged, fn);
     return () => {
       this.event.off(EVENT_NAMES.hiddenChanged, fn);
-    };
-  }
-  onLockedChanged(fn: (locked: boolean) => void): IPublicTypeDisposable {
-    this.event.on(EVENT_NAMES.lockedChanged, fn);
-    return () => {
-      this.event.off(EVENT_NAMES.lockedChanged, fn);
     };
   }
 

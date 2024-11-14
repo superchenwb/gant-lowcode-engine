@@ -569,7 +569,7 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
           onMouseDownHook(downEvent, node.internalToShellNode());
         }
         const rglNode = node?.getParent();
-        const isRGLNode = rglNode?.isRGLContainer;
+        const isRGLNode = rglNode?.isRGLContainerNode;
         if (isRGLNode) {
           // 如果拖拽的是磁铁块的右下角 handle，则直接跳过
           if (downEvent.target?.classList.contains('react-resizable-handle')) return;
@@ -600,7 +600,9 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
           // 鼠标是否移动 ? - 鼠标抖动应该也需要支持选中事件，偶尔点击不能选中，磁帖块移除 shaken 检测
           if (!isShaken(downEvent, e) || isRGLNode) {
             let { id } = node;
+
             designer.activeTracker.track({ node, instance: nodeInst?.instance });
+            if (selection.hasAnchord) return;
             if (isMulti && focusNode && !node.contains(focusNode) && selection.has(id)) {
               selection.remove(id);
             } else {
@@ -772,6 +774,12 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
         e.stopPropagation();
         e.preventDefault();
 
+        const documentModel = this.project.currentDocument;
+        if (!documentModel) {
+          return;
+        }
+        const { selection } = documentModel;
+
         const targetElement = e.target as HTMLElement;
         const nodeInst = this.getNodeInstanceFromElement(targetElement);
         if (!nodeInst) {
@@ -780,6 +788,14 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
         const focusNode = this.project.currentDocument?.focusNode;
         const node = nodeInst.node || focusNode;
         if (!node || isLowCodeComponent(node)) {
+          return;
+        }
+
+        if (
+          selection
+            .getNodes()
+            .some((selectNode) => selectNode.isAnchored && selectNode.id !== node.id)
+        ) {
           return;
         }
 
@@ -1431,6 +1447,17 @@ export class BuiltinSimulatorHost implements ISimulatorHost<BuiltinSimulatorProp
       if (p !== container) {
         container = p || document.focusNode;
         container && drillDownExcludes.add(container);
+      }
+    }
+    let node = container;
+    if (document.selection.hasAnchord) {
+      while(node) {
+        if (node.isAnchored || (node.parent && node.parent.isAnchored && document.checkNesting(node, node.parent))) {
+          container = node;
+          node = null;
+        } else {
+          node = node.parent;
+        }
       }
     }
 

@@ -196,7 +196,7 @@ export class ContextMenuActions implements IContextMenuActions {
         originalEvent.stopPropagation();
         originalEvent.preventDefault();
         // 如果右键的节点不在 当前选中的节点中，选中该节点
-        if (!designer.currentSelection.has(node.id)) {
+        if (!designer.currentSelection.has(node.id) && !designer.currentSelection.hasAnchord) {
           designer.currentSelection.select(node.id);
         }
         const nodes = designer.currentSelection.getNodes();

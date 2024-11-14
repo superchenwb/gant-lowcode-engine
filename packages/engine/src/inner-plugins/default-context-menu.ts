@@ -85,7 +85,9 @@ export const defaultContextMenu = (ctx: IPublicModelPluginContext) => {
 
           if (parent) {
             const newNode = doc?.insertNode(parent, node, (index ?? 0) + 1, true);
-            newNode?.select();
+            if (!node.isAnchored) {
+              newNode?.select();
+            }
           }
         },
       });

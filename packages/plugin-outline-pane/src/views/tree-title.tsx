@@ -1,15 +1,34 @@
 import { KeyboardEvent, FocusEvent, Fragment, PureComponent } from 'react';
 import classNames from 'classnames';
 import { createIcon } from '@alilc/lowcode-utils';
-import { IPublicApiEvent } from '@alilc/lowcode-types';
+import { IPublicApiEvent, IPublicModelNode } from '@alilc/lowcode-types';
 import TreeNode from '../controllers/tree-node';
-import { IconLock, IconUnlock, IconArrowRight, IconEyeClose, IconEye, IconCond, IconLoop, IconRadioActive, IconRadio, IconSetting, IconDelete } from '../icons';
+import {
+  IconLock,
+  IconUnlock,
+  IconArrowRight,
+  IconEyeClose,
+  IconEye,
+  IconCond,
+  IconLoop,
+  IconRadioActive,
+  IconRadio,
+  IconSetting,
+  IconDelete,
+} from '../icons';
 
-function emitOutlineEvent(event: IPublicApiEvent, type: string, treeNode: TreeNode, rest?: Record<string, unknown>) {
+function emitOutlineEvent(
+  event: IPublicApiEvent,
+  type: string,
+  treeNode: TreeNode,
+  rest?: Record<string, unknown>,
+) {
   const node = treeNode?.node;
   const npm = node?.componentMeta?.npm;
   const selected =
-    [npm?.package, npm?.componentName].filter((item) => !!item).join('-') || node?.componentMeta?.componentName || '';
+    [npm?.package, npm?.componentName].filter((item) => !!item).join('-') ||
+    node?.componentMeta?.componentName ||
+    '';
   event.emit(`outlinePane.${type}`, {
     selected,
     ...rest,
@@ -22,6 +41,7 @@ export default class TreeTitle extends PureComponent<{
   expanded: boolean;
   hidden: boolean;
   locked: boolean;
+  anchored: boolean;
   expandable: boolean;
 }> {
   state: {
@@ -107,8 +127,16 @@ export default class TreeTitle extends PureComponent<{
       });
     });
     treeNode.onFilterResultChanged(() => {
-      const { filterWorking: newFilterWorking, keywords: newKeywords, matchSelf: newMatchSelf } = treeNode.filterReult;
-      this.setState({ filterWorking: newFilterWorking, keywords: newKeywords, matchSelf: newMatchSelf });
+      const {
+        filterWorking: newFilterWorking,
+        keywords: newKeywords,
+        matchSelf: newMatchSelf,
+      } = treeNode.filterReult;
+      this.setState({
+        filterWorking: newFilterWorking,
+        keywords: newKeywords,
+        matchSelf: newMatchSelf,
+      });
     });
   }
   deleteClick = () => {
@@ -123,7 +151,9 @@ export default class TreeTitle extends PureComponent<{
     const isCNode = !treeNode.isRoot();
     const { node } = treeNode;
     const { componentMeta } = node;
-    const availableActions = componentMeta ? componentMeta.availableActions.map((availableAction) => availableAction.name) : [];
+    const availableActions = componentMeta
+      ? componentMeta.availableActions.map((availableAction) => availableAction.name)
+      : [];
     const isNodeParent = node.isParentalNode;
     const isContainer = node.isContainerNode;
     let style: any;
@@ -141,8 +171,18 @@ export default class TreeTitle extends PureComponent<{
     const couldHide = availableActions.includes('hide');
     const couldLock = availableActions.includes('lock');
     const couldUnlock = availableActions.includes('unlock');
+    const couldAnchor = availableActions.includes('anchor');
+    const couldUnAnchor = availableActions.includes('unAnchor');
     const shouldShowHideBtn = isCNode && isNodeParent && !isModal && couldHide;
-    const shouldShowLockBtn = config.get('enableCanvasLock', false) && isContainer && isCNode && isNodeParent && ((couldLock && !node.isLocked) || (couldUnlock && node.isLocked));
+    const shouldShowLockBtn =
+      config.get('enableCanvasLock', false) &&
+      isContainer &&
+      isCNode &&
+      isNodeParent &&
+      ((couldLock && !node.isLocked) || (couldUnlock && node.isLocked));
+    const shouldShowAnchorBtn =
+      config.get('enableCanvasAnchor', false) &&
+      ((couldAnchor && !node.isAnchored) || (couldUnAnchor && node.isAnchored));
     const shouldEditBtn = isCNode && isNodeParent;
     const shouldDeleteBtn = isCNode && isNodeParent && node?.canPerformAction('remove');
     return (
@@ -165,22 +205,30 @@ export default class TreeTitle extends PureComponent<{
         }}
       >
         {isModal && this.state.visible && (
-          <div onClick={() => {
-            node.document?.modalNodesManager?.setInvisible(node);
-          }}
+          <div
+            onClick={() => {
+              node.document?.modalNodesManager?.setInvisible(node);
+            }}
           >
             <IconRadioActive className="tree-node-modal-radio-active" />
           </div>
         )}
         {isModal && !this.state.visible && (
-          <div onClick={() => {
-            node.document?.modalNodesManager?.setVisible(node);
-          }}
+          <div
+            onClick={() => {
+              node.document?.modalNodesManager?.setVisible(node);
+            }}
           >
             <IconRadio className="tree-node-modal-radio" />
           </div>
         )}
-        {isCNode && <ExpandBtn expandable={this.props.expandable} expanded={this.props.expanded} treeNode={treeNode} />}
+        {isCNode && (
+          <ExpandBtn
+            expandable={this.props.expandable}
+            expanded={this.props.expanded}
+            treeNode={treeNode}
+          />
+        )}
         <div className="tree-node-icon">{createIcon(treeNode.icon)}</div>
         <div className="tree-node-title-label">
           {editing ? (
@@ -192,7 +240,7 @@ export default class TreeTitle extends PureComponent<{
               onKeyUp={this.handleKeyUp}
             />
           ) : (
-            <Fragment>
+            <>
               {/* @ts-ignore */}
               <Title
                 title={this.state.title}
@@ -223,11 +271,12 @@ export default class TreeTitle extends PureComponent<{
                   <Tip>{intlNode('Conditional')}</Tip>
                 </a>
               )}
-            </Fragment>
+            </>
           )}
         </div>
         {shouldShowHideBtn && <HideBtn hidden={this.props.hidden} treeNode={treeNode} />}
         {shouldShowLockBtn && <LockBtn locked={this.props.locked} treeNode={treeNode} />}
+        {shouldShowAnchorBtn && <AnchorBtn anchored={this.props.anchored} treeNode={treeNode} />}
         {shouldEditBtn && <RenameBtn treeNode={treeNode} onClick={this.enableEdit} />}
         {shouldDeleteBtn && <DeleteBtn treeNode={treeNode} onClick={this.deleteClick} />}
       </div>
@@ -243,10 +292,7 @@ class DeleteBtn extends PureComponent<{
     const { intl, common } = this.props.treeNode.pluginContext;
     const { Tip } = common.editorCabin;
     return (
-      <div
-        className="tree-node-delete-btn"
-        onClick={this.props.onClick}
-      >
+      <div className="tree-node-delete-btn" onClick={this.props.onClick}>
         <IconDelete />
         {/* @ts-ignore */}
         <Tip>{intl('Delete')}</Tip>
@@ -263,10 +309,7 @@ class RenameBtn extends PureComponent<{
     const { intl, common } = this.props.treeNode.pluginContext;
     const { Tip } = common.editorCabin;
     return (
-      <div
-        className="tree-node-rename-btn"
-        onClick={this.props.onClick}
-      >
+      <div className="tree-node-rename-btn" onClick={this.props.onClick}>
         <IconSetting />
         {/* @ts-ignore */}
         <Tip>{intl('Rename')}</Tip>
@@ -291,7 +334,7 @@ class LockBtn extends PureComponent<{
           treeNode.setLocked(!locked);
         }}
       >
-        {locked ? <IconUnlock /> : <IconLock /> }
+        {locked ? <IconUnlock /> : <IconLock />}
         {/* @ts-ignore */}
         <Tip>{locked ? intl('Unlock') : intl('Lock')}</Tip>
       </div>
@@ -299,12 +342,60 @@ class LockBtn extends PureComponent<{
   }
 }
 
-class HideBtn extends PureComponent<{
+class AnchorBtn extends PureComponent<{
   treeNode: TreeNode;
-  hidden: boolean;
-}, {
-  hidden: boolean;
+  anchored: boolean;
 }> {
+  render() {
+    const { treeNode, anchored } = this.props;
+    const { intl, common } = this.props.treeNode.pluginContext;
+    const { Tip } = common.editorCabin;
+    return (
+      <div
+        className="tree-node-anchor-btn"
+        onClick={(e) => {
+          e.stopPropagation();
+          let isAnchored = false, isAnchoredNode: IPublicModelNode | undefined = undefined;
+          treeNode.node.document?.nodesMap.forEach((node) => {
+            if (treeNode.node.id !== node.id && node.isAnchored) {
+              isAnchored = true;
+              isAnchoredNode = node;
+            }
+          });
+          if (isAnchored && isAnchoredNode) {
+            treeNode.node.select();
+            (isAnchoredNode as IPublicModelNode).anchored(false);
+            treeNode.setAnchored(true);
+          } else {
+            treeNode.setAnchored(!anchored);
+          }
+        }}
+      >
+        {createIcon(
+          anchored
+            ? {
+                style: {
+                  color: '#4284F5',
+                },
+                type: 'maoding',
+              }
+            : 'maoding',
+        )}
+        <Tip>{anchored ? intl('UnAnchor') : intl('Anchor')}</Tip>
+      </div>
+    );
+  }
+}
+
+class HideBtn extends PureComponent<
+  {
+    treeNode: TreeNode;
+    hidden: boolean;
+  },
+  {
+    hidden: boolean;
+  }
+> {
   render() {
     const { treeNode, hidden } = this.props;
     const { intl, common } = treeNode.pluginContext;
@@ -343,7 +434,11 @@ class ExpandBtn extends PureComponent<{
           if (expanded) {
             e.stopPropagation();
           }
-          emitOutlineEvent(treeNode.pluginContext.event, expanded ? 'collapse' : 'expand', treeNode);
+          emitOutlineEvent(
+            treeNode.pluginContext.event,
+            expanded ? 'collapse' : 'expand',
+            treeNode,
+          );
           treeNode.setExpanded(!expanded);
         }}
       >

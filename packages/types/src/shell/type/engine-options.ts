@@ -98,6 +98,11 @@ export interface IPublicTypeEngineOptions {
   enableLockedNodeSetting?: boolean;
 
   /**
+   * 打开画布的锚定操作，默认值：false
+   */
+  enableCanvasAnchor?: boolean;
+
+  /**
    * 当选中节点切换时，是否停留在相同的设置 tab 上，默认值：false
    */
   stayOnTheSameSettingTab?: boolean;

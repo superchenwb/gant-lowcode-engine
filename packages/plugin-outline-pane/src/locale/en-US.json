@@ -4,6 +4,8 @@
   "Show": "Show",
   "Lock": "Lock",
   "Unlock": "Unlock",
+  "Anchor": "Anchor",
+  "UnAnchor": "UnAnchor",
   "Expand": "Expand",
   "Collapse": "Collapse",
   "Conditional": "Condition",

@@ -59,10 +59,16 @@ export class ComponentActions {
         action(node: IPublicModelNode) {
           // node.remove();
           const { document: doc, parent, index } = node;
+          console.log('--node', node)
           if (parent) {
+
             const newNode = doc?.insertNode(parent, node, (index ?? 0) + 1, true);
+
             deduplicateRef(newNode);
-            newNode?.select();
+            if (!node.isAnchored) {
+              newNode?.select();
+            }
+
             const { isRGL, rglNode } = node?.getRGL();
             if (isRGL) {
               // 复制 layout 信息
@@ -112,6 +118,43 @@ export class ComponentActions {
       /* istanbul ignore next */
       condition: (node: IPublicModelNode) => {
         return engineConfig.get('enableCanvasLock', false) && node.isContainerNode && node.isLocked;
+      },
+      important: true,
+    },
+    {
+      name: 'anchor',
+      content: {
+        icon: 'maoding', // 锁定 icon
+        title: intlNode('anchor'),
+        /* istanbul ignore next */
+        action(node: IPublicModelNode) {
+          node.anchored();
+        },
+      },
+      /* istanbul ignore next */
+      condition: (node: IPublicModelNode) => {
+        return engineConfig.get('enableCanvasAnchor', false) && !node.isAnchored;
+      },
+      important: true,
+    },
+    {
+      name: 'unAnchor',
+      content: {
+        icon: {
+          style: {
+            color: '#4284F5'
+          },
+          type: 'maoding',
+        },
+        title: intlNode('unAnchor'),
+        /* istanbul ignore next */
+        action(node: IPublicModelNode) {
+          node.anchored(false);
+        },
+      },
+      /* istanbul ignore next */
+      condition: (node: IPublicModelNode) => {
+        return engineConfig.get('enableCanvasAnchor', false) && node.isAnchored;
       },
       important: true,
     },

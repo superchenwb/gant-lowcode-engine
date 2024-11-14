@@ -19,7 +19,7 @@ import { Dock } from './widget/dock';
 import { Stage, StageConfig } from './widget/stage';
 import { isValidElement } from 'react';
 import { isPlainObject, uniqueId, Logger } from '@alilc/lowcode-utils';
-import { Divider } from '@alifd/next';
+import { Divider } from 'antd';
 import {
   EditorConfig,
   PluginClassSet,

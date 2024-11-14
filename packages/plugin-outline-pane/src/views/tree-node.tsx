@@ -1,4 +1,4 @@
-import { PureComponent } from 'react';
+import { PureComponent, Component } from 'react';
 import classNames from 'classnames';
 import TreeNode from '../controllers/tree-node';
 import TreeTitle from './tree-title';
@@ -6,6 +6,7 @@ import TreeBranches from './tree-branches';
 import { IconEyeClose } from '../icons/eye-close';
 import { IPublicModelModalNodesManager, IPublicTypeDisposable } from '@alilc/lowcode-types';
 import { IOutlinePanelPluginContext } from '../controllers/tree-master';
+import { observer } from '@alilc/lowcode-editor-core';
 
 class ModalTreeNodeView extends PureComponent<{
   treeNode: TreeNode;
@@ -81,6 +82,7 @@ class ModalTreeNodeView extends PureComponent<{
   }
 }
 
+@observer
 export default class TreeNodeView extends PureComponent<{
   treeNode: TreeNode;
   isModal?: boolean;
@@ -90,7 +92,6 @@ export default class TreeNodeView extends PureComponent<{
     expanded: boolean;
     selected: boolean;
     hidden: boolean;
-    locked: boolean;
     detecting: boolean;
     isRoot: boolean;
     highlight: boolean;
@@ -105,7 +106,6 @@ export default class TreeNodeView extends PureComponent<{
     expanded: false,
     selected: false,
     hidden: false,
-    locked: false,
     detecting: false,
     isRoot: false,
     highlight: false,
@@ -127,7 +127,6 @@ export default class TreeNodeView extends PureComponent<{
       expanded: isRootNode ? true : treeNode.expanded,
       selected: treeNode.selected,
       hidden: treeNode.hidden,
-      locked: treeNode.locked,
       detecting: treeNode.detecting,
       isRoot: treeNode.isRoot(),
       // 是否投放响应
@@ -151,9 +150,7 @@ export default class TreeNodeView extends PureComponent<{
     treeNode.onHiddenChanged((hidden: boolean) => {
       this.setState({ hidden });
     });
-    treeNode.onLockedChanged((locked: boolean) => {
-      this.setState({ locked });
-    });
+
     treeNode.onExpandableChanged((expandable: boolean) => {
       this.setState({
         expandable,
@@ -181,6 +178,7 @@ export default class TreeNodeView extends PureComponent<{
     });
     this.eventOffCallbacks.push(offDetectingChange!);
   }
+
   componentWillUnmount(): void {
     this.eventOffCallbacks?.forEach((offFun: IPublicTypeDisposable | undefined) => {
       offFun && offFun();
@@ -214,7 +212,9 @@ export default class TreeNodeView extends PureComponent<{
       // 是否隐藏的
       hidden: this.state.hidden,
       // 是否锁定的
-      locked: this.state.locked,
+      locked: treeNode.locked,
+      // 是否锁定的
+      anchored: treeNode.anchored,
       // 是否悬停中
       detecting: this.state.detecting,
       // 是否投放响应
@@ -242,7 +242,8 @@ export default class TreeNodeView extends PureComponent<{
           isModal={isModal}
           expanded={this.state.expanded}
           hidden={this.state.hidden}
-          locked={this.state.locked}
+          locked={treeNode.locked}
+          anchored={treeNode.anchored}
           expandable={this.state.expandable}
         />
         {shouldShowModalTreeNode &&

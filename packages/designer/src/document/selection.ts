@@ -24,6 +24,16 @@ export class Selection implements ISelection {
   }
 
   /**
+   * 是否存在锚定节点
+   */
+  get hasAnchord(): boolean {
+    return this.selected.some((id) => {
+      const node = this.doc.getNode(id);
+      return node?.isAnchored;
+    });
+  }
+
+  /**
    * 选中
    */
   select(id: string) {

@@ -26,7 +26,7 @@ export function createIcon(
   if (isESModule(icon)) {
     icon = icon.default;
   }
-  let style: React.CSSProperties = {};
+  let style: React.CSSProperties = { fontSize: 16 };
   if (props?.size) {
     if (props?.size) {
       if (SizePresets.hasOwnProperty(props?.size)) {

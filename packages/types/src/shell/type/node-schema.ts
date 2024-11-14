@@ -1,4 +1,8 @@
-import { IPublicTypeCompositeValue, IPublicTypePropsMap, IPublicTypeNodeData } from './';
+import {
+  IPublicTypeCompositeValue,
+  IPublicTypePropsMap,
+  IPublicTypeNodeData,
+} from './';
 
 // 转换成一个 .jsx 文件内 React Class 类 render 函数返回的 jsx 代码
 /**
@@ -44,6 +48,11 @@ export interface IPublicTypeNodeSchema {
    * 是否锁定
    */
   isLocked?: boolean;
+
+  /**
+   * 是否锚定
+   */
+  isAnchored?: boolean;
 
   // @todo
   // ------- future support -----

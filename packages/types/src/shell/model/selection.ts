@@ -12,6 +12,11 @@ export interface IPublicModelSelection<
   get selected(): string[];
 
   /**
+   * 判断选中的节点中是否存在锚定节点
+   */
+  get hasAnchord(): boolean;
+
+  /**
    * 返回选中的节点（如多个节点只返回第一个）
    * return selected Node instance，return the first one if multiple nodes are selected
    * @since v1.1.0

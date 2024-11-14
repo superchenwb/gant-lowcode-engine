@@ -373,6 +373,7 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema> 
   constructor(readonly document: IDocumentModel, nodeSchema: Schema) {
     makeObservable(this);
     const { componentName, id, children, props, ...extras } = nodeSchema;
+
     this.id = document.nextId(id);
     this.componentName = componentName;
     if (this.componentName === 'Leaf') {
@@ -404,6 +405,11 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema> 
         node: this,
       });
     });
+    if (nodeSchema.isAnchored) {
+      setTimeout(() => {
+        this.select();
+      }, 1000);
+    }
   }
 
   /**
@@ -414,6 +420,7 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema> 
     this.props.has(getConvertedExtraKey('hidden')) || this.props.add(false, getConvertedExtraKey('hidden'));
     this.props.has(getConvertedExtraKey('title')) || this.props.add('', getConvertedExtraKey('title'));
     this.props.has(getConvertedExtraKey('isLocked')) || this.props.add(false, getConvertedExtraKey('isLocked'));
+    this.props.has(getConvertedExtraKey('isAnchored')) || this.props.add(false, getConvertedExtraKey('isAnchored'));
     this.props.has(getConvertedExtraKey('condition')) || this.props.add(true, getConvertedExtraKey('condition'));
     this.props.has(getConvertedExtraKey('conditionGroup')) || this.props.add('', getConvertedExtraKey('conditionGroup'));
     this.props.has(getConvertedExtraKey('loop')) || this.props.add(undefined, getConvertedExtraKey('loop'));
@@ -647,6 +654,20 @@ export class Node<Schema extends IPublicTypeNodeSchema = IPublicTypeNodeSchema> 
    */
   get isLocked(): boolean {
     return !!this.getExtraProp('isLocked')?.getValue();
+  }
+
+  /**
+   * 锚定当前节点
+   */
+  anchored(flag = true) {
+    this.setExtraProp('isAnchored', flag);
+  }
+
+  /**
+   * 获取当前节点的锁定状态
+   */
+  get isAnchored(): boolean {
+    return !!this.getExtraProp('isAnchored')?.getValue();
   }
 
   canSelect(): boolean {
@@ -1498,6 +1519,7 @@ export function insertChild(
   if (isNode<INode>(thing) && (copy || thing.isSlot())) {
     nodeSchema = thing.export(IPublicEnumTransformStage.Clone);
     node = container.document?.createNode(nodeSchema);
+    node?.anchored(false);
   } else if (isNode<INode>(thing)) {
     node = thing;
   } else if (isNodeSchema(thing)) {

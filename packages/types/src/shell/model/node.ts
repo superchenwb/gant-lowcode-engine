@@ -143,6 +143,13 @@ export interface IBaseModelNode<
   get isLocked(): boolean;
 
   /**
+   * 获取当前节点的锚定状态
+   * check if current node is anchored
+   * @since v1.0.16
+   */
+  get isAnchored(): boolean;
+
+  /**
    * @deprecated please use isRGLContainerNode
    */
   set isRGLContainer(flag: boolean);
@@ -423,6 +430,11 @@ export interface IBaseModelNode<
    * @since v1.0.16
    */
   lock(flag?: boolean): void;
+
+  /**
+   * 锚定当前节点
+   */
+  anchored(flag?: boolean): void;
 
   /**
    * 删除当前节点实例

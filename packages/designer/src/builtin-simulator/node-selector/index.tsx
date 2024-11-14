@@ -84,13 +84,14 @@ const NodeSelector: React.FC<ISelectorProps> = observer(function ({
 
   const renderMenu = () => {
     const parents = node.getParents();
+    const currentNode = node;
     return (
       <div className={'instance-node-selector-list'}>
         {parents.slice(0, 4).map((node, key) => {
           return (
             <div
               key={key}
-              onClick={onSelect(node)}
+              onClick={!currentNode.isAnchored ? onSelect(node) : undefined}
               onMouseEnter={onMouseOver(node)}
               onMouseLeave={onMouseOut(node)}
               className="instance-node-selector-node"

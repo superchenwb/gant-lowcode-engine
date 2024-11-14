@@ -397,6 +397,7 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         if (!selected || selected.length < 1) {
           return;
         }
+        if (doc.selection.hasAnchord) return;
         const firstNode = selected[0];
         const silbing = action === 'left' ? firstNode?.prevSibling : firstNode?.nextSibling;
         silbing?.select();
@@ -416,6 +417,7 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         if (!selected || selected.length < 1) {
           return;
         }
+        if (doc.selection.hasAnchord) return;
         const firstNode = selected[0];
 
         if (action === 'down') {
@@ -441,6 +443,7 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         if (!selected || selected.length < 1) {
           return;
         }
+        if (doc.selection.hasAnchord) return;
         // TODO: 此处需要增加判断当前节点是否可被操作移动，原ve里是用 node.canOperating()来判断
         // TODO: 移动逻辑也需要重新梳理，对于移动目标位置的选择，是否可以移入，需要增加判断
 
@@ -475,6 +478,7 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         if (!selected || selected.length < 1) {
           return;
         }
+        if (doc.selection.hasAnchord) return;
         // TODO: 此处需要增加判断当前节点是否可被操作移动，原ve里是用 node.canOperating()来判断
         // TODO: 移动逻辑也需要重新梳理，对于移动目标位置的选择，是否可以移入，需要增加判断
 
@@ -517,6 +521,7 @@ export const builtinHotkey = (ctx: IPublicModelPluginContext) => {
         if (!selected || selected.length < 1) {
           return;
         }
+        if (doc.selection.hasAnchord) return;
         // TODO: 此处需要增加判断当前节点是否可被操作移动，原 ve 里是用 node.canOperating() 来判断
         // TODO: 移动逻辑也需要重新梳理，对于移动目标位置的选择，是否可以移入，需要增加判断
 
