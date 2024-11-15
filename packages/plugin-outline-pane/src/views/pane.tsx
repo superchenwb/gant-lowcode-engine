@@ -2,16 +2,19 @@ import React, { PureComponent } from 'react';
 import { Loading } from '@alifd/next';
 import { PaneController } from '../controllers/pane-controller';
 import TreeView from './tree';
-import './style.less';
 import Filter from './filter';
 import { TreeMaster } from '../controllers/tree-master';
 import { Tree } from '../controllers/tree';
 import { IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { CloseOutlined } from '@ant-design/icons';
+import './style.less';
+import { Button } from 'antd';
 
 export class Pane extends PureComponent<{
   treeMaster: TreeMaster;
   controller: PaneController;
   hideFilter?: boolean;
+  onClose: () => void;
 }, {
   tree: Tree | null;
 }> {
@@ -46,6 +49,10 @@ export class Pane extends PureComponent<{
     this.removeDocumentDispose?.();
   }
 
+  onClose = () => {
+    this.props.onClose();
+  }
+
   render() {
     const tree = this.state.tree;
 
@@ -67,6 +74,10 @@ export class Pane extends PureComponent<{
 
     return (
       <div className="lc-outline-pane">
+        <div className={'lc-outline-pane-header'}>
+          {this.props.treeMaster.pluginContext.intl('Outline Tree')}
+          <Button className='outline-header-close' variant="link" color="default" icon={<CloseOutlined />} onClick={this.onClose} />
+        </div>
         { !this.props.hideFilter && <Filter tree={tree} /> }
         <div ref={(shell) => this.controller.mount(shell)} className={`lc-outline-tree-container ${ this.props.hideFilter ? 'lc-hidden-outline-filter' : '' }`}>
           <TreeView key={tree.id} tree={tree} />

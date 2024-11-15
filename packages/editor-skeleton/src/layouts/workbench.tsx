@@ -34,23 +34,25 @@ export class Workbench extends Component<{
     return (
       <div className={classNames('lc-workbench', className)}>
         <SkeletonContext.Provider value={this.props.skeleton}>
-          <TopArea area={skeleton.topArea} itemClassName={topAreaItemClassName} />
           <div className="lc-workbench-body">
             <LeftArea area={skeleton.leftArea} />
             <LeftFloatPane area={skeleton.leftFloatArea} />
             <LeftFixedPane area={skeleton.leftFixedArea} />
-            <Splitter>
-              <Splitter.Panel>
-                <div className="lc-workbench-center">
-                  <Toolbar area={skeleton.toolbar} />
-                  <MainArea area={skeleton.mainArea} />
-                  <BottomArea area={skeleton.bottomArea} />
-                </div>
-              </Splitter.Panel>
-              <Splitter.Panel defaultSize={400} min={400} max={'50%'}>
-                <RightArea area={skeleton.rightArea} />
-              </Splitter.Panel>
-            </Splitter>
+            <div className="lc-workbench-body-right">
+              <TopArea area={skeleton.topArea} itemClassName={topAreaItemClassName} />
+              <Splitter>
+                <Splitter.Panel>
+                  <div className="lc-workbench-center">
+                    <Toolbar area={skeleton.toolbar} />
+                    <MainArea area={skeleton.mainArea} />
+                    <BottomArea area={skeleton.bottomArea} />
+                  </div>
+                </Splitter.Panel>
+                <Splitter.Panel defaultSize={400} min={400} max={'50%'} className="right-area-splitter-panel" >
+                  <RightArea area={skeleton.rightArea} />
+                </Splitter.Panel>
+              </Splitter>
+            </div>
           </div>
           <TipContainer />
         </SkeletonContext.Provider>

@@ -195,7 +195,7 @@ class TreeNodeSlots extends PureComponent<{
     if (!treeNode.hasSlots()) {
       return null;
     }
-    const Title = this.props.treeNode.pluginContext.common.editorCabin.Title;
+    // const Title = this.props.treeNode.pluginContext.common.editorCabin.Title;
     return (
       <div
         className={classNames('tree-node-slots', {
@@ -203,10 +203,9 @@ class TreeNodeSlots extends PureComponent<{
         })}
         data-id={treeNode.nodeId}
       >
-        <div className="tree-node-slots-title">
-          {/* @ts-ignore */}
+        {/* <div className="tree-node-slots-title">
           <Title title={{ type: 'i18n', intl: this.props.treeNode.pluginContext.intlNode('Slots') }} />
-        </div>
+        </div> */}
         {treeNode.slots.map(tnode => (
           <TreeNodeView key={tnode.nodeId} treeNode={tnode} />
         ))}

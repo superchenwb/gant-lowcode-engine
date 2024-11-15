@@ -16,6 +16,8 @@ export function OutlinePaneContext(props: {
   paneName: string;
 
   hideFilter?: boolean;
+
+  onClose: () => void;
 }) {
   const treeMaster = props.treeMaster || new TreeMaster(props.pluginContext, props.options);
   const [masterPaneController, setMasterPaneController] = useState(
@@ -53,32 +55,41 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
     backupPane: false,
   };
   const treeMaster = new TreeMaster(ctx, options);
+  const onShowOutlinePanel = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    if (target?.getAttribute("class") == 'lc-settings-navigator-icon') {
+      skeleton.showPanel(BackupPaneName);
+    }
+  }
+  const onClose = () => {
+    skeleton.hidePanel(BackupPaneName);
+  }
   return {
     async init() {
-      skeleton.add({
-        area: 'leftArea',
-        name: 'outlinePane',
-        type: 'PanelDock',
-        index: -1,
-        content: {
-          name: MasterPaneName,
-          props: {
-            icon: IconOutline,
-            description: treeMaster.pluginContext.intlNode('Outline Tree'),
-          },
-          content: OutlinePaneContext,
-        },
-        panelProps: {
-          area: isInFloatArea ? 'leftFloatArea' : 'leftFixedArea',
-          keepVisibleWhileDragging: true,
-          ...config.get('defaultOutlinePaneProps'),
-        },
-        contentProps: {
-          treeTitleExtra: config.get('treeTitleExtra'),
-          treeMaster,
-          paneName: MasterPaneName,
-        },
-      });
+      // skeleton.add({
+      //   area: 'leftArea',
+      //   name: 'outlinePane',
+      //   type: 'PanelDock',
+      //   index: -1,
+      //   content: {
+      //     name: MasterPaneName,
+      //     props: {
+      //       icon: IconOutline,
+      //       description: treeMaster.pluginContext.intlNode('Outline Tree'),
+      //     },
+      //     content: OutlinePaneContext,
+      //   },
+      //   panelProps: {
+      //     area: isInFloatArea ? 'leftFloatArea' : 'leftFixedArea',
+      //     keepVisibleWhileDragging: true,
+      //     ...config.get('defaultOutlinePaneProps'),
+      //   },
+      //   contentProps: {
+      //     treeTitleExtra: config.get('treeTitleExtra'),
+      //     treeMaster,
+      //     paneName: MasterPaneName,
+      //   },
+      // });
 
       skeleton.add({
         area: 'rightArea',
@@ -91,6 +102,7 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
         contentProps: {
           paneName: BackupPaneName,
           treeMaster,
+          onClose,
         },
         index: 1,
       });
@@ -142,6 +154,7 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
           if (!selectedNodes || selectedNodes.length === 0) {
             return;
           }
+          skeleton.hidePanel(BackupPaneName);
           const tree = treeMaster.currentTree;
           selectedNodes.forEach((node) => {
             const treeNode = tree?.getTreeNodeById(node.id);
@@ -149,7 +162,11 @@ export const OutlinePlugin = (ctx: IPublicModelPluginContext, options: any) => {
           });
         });
       });
+      document.addEventListener('click', onShowOutlinePanel);
     },
+    destroy() {
+      document.removeEventListener('click', onShowOutlinePanel);
+    }
   };
 };
 OutlinePlugin.meta = {

@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
-import { Tab, Breadcrumb } from '@alifd/next';
-import { Title, observer, Editor, obx, globalContext, engineConfig, makeObservable } from '@alilc/lowcode-editor-core';
+import { Tabs, Breadcrumb } from 'antd';
+import {
+  Title,
+  observer,
+  Editor,
+  obx,
+  globalContext,
+  engineConfig,
+  makeObservable,
+} from '@alilc/lowcode-editor-core';
 import { Node, SettingField, isSettingField, INode } from '@alilc/lowcode-designer';
 import classNames from 'classnames';
 import { SettingsMain } from './main';
@@ -16,13 +24,20 @@ interface ISettingsPrimaryPaneProps {
 }
 
 @observer
-export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { shouldIgnoreRoot: boolean }> {
+export class SettingsPrimaryPane extends Component<
+  ISettingsPrimaryPaneProps,
+  { shouldIgnoreRoot: boolean }
+> {
   state = {
     shouldIgnoreRoot: false,
   };
   private main = new SettingsMain(this.props.engineEditor);
 
-  @obx.ref private _activeKey?: any;
+  @obx.ref private _activeKey?: string = undefined;
+
+  static contextType = SkeletonContext;
+
+  declare context: React.ContextType<typeof SkeletonContext>;
 
   constructor(props: ISettingsPrimaryPaneProps) {
     super(props);
@@ -36,7 +51,7 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
 
     editor.eventBus.on('designer.selection.change', () => {
       if (!engineConfig.get('stayOnTheSameSettingTab', false)) {
-        this._activeKey = null;
+        this._activeKey = undefined;
       }
     });
   }
@@ -54,6 +69,7 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
 
   renderBreadcrumb() {
     const { settings, editor } = this.main;
+    const skeleton = editor?.get('skeleton');
     // const shouldIgnoreRoot = config.props?.ignoreRoot;
     const { shouldIgnoreRoot } = this.state;
     if (!settings) {
@@ -89,36 +105,36 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
       if (focusNode && node.contains(focusNode)) {
         l = 0;
       }
-      const props =
+      const item =
         l === 2
-          ? {}
+          ? { title: <Title title={node.title} /> }
           : {
-            onMouseOver: hoverNode.bind(null, _node, true),
-            onMouseOut: hoverNode.bind(null, _node, false),
-            onClick: () => {
-              if (!_node) {
-                return;
-              }
-              selectNode.call(null, _node);
-              const getName = (node: any) => {
-                const npm = node?.componentMeta?.npm;
-                return [npm?.package, npm?.componentName].filter((item) => !!item).join('-') ||
-                  node?.componentMeta?.componentName ||
-                  '';
-              };
-              const selected = getName(current);
-              const target = getName(_node);
-              editor?.eventBus.emit('skeleton.settingsPane.Breadcrumb', {
-                selected,
-                target,
-              });
-            },
-          };
-      items.unshift(
-        <Breadcrumb.Item {...props} key={node.id}>
-          <Title title={node.title} />
-        </Breadcrumb.Item>,
-      );
+              onMouseOver: hoverNode.bind(null, _node, true),
+              onMouseOut: hoverNode.bind(null, _node, false),
+              onClick: () => {
+                if (!_node) {
+                  return;
+                }
+                selectNode.call(null, _node);
+                const getName = (node: any) => {
+                  const npm = node?.componentMeta?.npm;
+                  return (
+                    [npm?.package, npm?.componentName].filter((item) => !!item).join('-') ||
+                    node?.componentMeta?.componentName ||
+                    ''
+                  );
+                };
+                const selected = getName(current);
+                const target = getName(_node);
+                editor?.eventBus.emit('skeleton.settingsPane.Breadcrumb', {
+                  selected,
+                  target,
+                });
+              },
+              title: <Title title={node.title} />,
+            };
+
+      items.unshift(item);
       node = node.parent;
     }
 
@@ -128,10 +144,25 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
           className: 'lc-settings-navigator-icon',
           class: 'lc-settings-navigator-icon',
         })}
-        <Breadcrumb className="lc-settings-node-breadcrumb">{items}</Breadcrumb>
+        <Breadcrumb className="lc-settings-node-breadcrumb" separator=">" items={items} />
       </div>
     );
   }
+
+  onChange = (key: string) => {
+    this._activeKey = key;
+  };
+
+  onTabClick = (key: string) => {
+    const { settings } = this.main;
+    const editor = this.props.engineEditor;
+    const { items } = settings;
+    const field = items.find((item) => item.name === key);
+    editor?.eventBus.emit('skeleton.settingsPane.change', {
+      name: field.name,
+      title: field.title,
+    });
+  };
 
   render() {
     const { settings } = this.main;
@@ -184,58 +215,26 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
         <div className="lc-settings-main">
           {this.renderBreadcrumb()}
           <div className="lc-settings-body">
-            <SkeletonContext.Consumer>
-              {(skeleton) => {
-                if (skeleton) {
-                  return (
-                    <StageBox skeleton={skeleton} target={settings} key={settings.id}>
-                      <SettingsPane target={settings} usePopup={false} />
-                    </StageBox>
-                  );
-                }
-                return null;
-              }}
-            </SkeletonContext.Consumer>
+            <StageBox skeleton={this.context} target={settings} key={settings.id}>
+              <SettingsPane target={settings} usePopup={false} />
+            </StageBox>
           </div>
         </div>
       );
     }
 
-    let matched = false;
     const tabs = (items as SettingField[]).map((field) => {
-      if (this._activeKey === field.name) {
-        matched = true;
-      }
-      return (
-        <Tab.Item
-          className="lc-settings-tab-item"
-          title={<Title title={field.title} />}
-          key={field.name}
-          onClick={
-            () => {
-              editor?.eventBus.emit('skeleton.settingsPane.change', {
-                name: field.name,
-                title: field.title,
-              });
-            }
-          }
-        >
-          <SkeletonContext.Consumer>
-            {(skeleton) => {
-              if (skeleton) {
-                return (
-                  <StageBox skeleton={skeleton} target={field} key={field.id}>
-                    <SettingsPane target={field} key={field.id} usePopup={false} />
-                  </StageBox>
-                );
-              }
-              return null;
-            }}
-          </SkeletonContext.Consumer>
-        </Tab.Item>
-      );
+      return {
+        key: field.name,
+        label: <Title title={field.title} />,
+        children: (
+          <StageBox skeleton={this.context} target={field} key={field.id}>
+            <SettingsPane target={field} key={field.id} usePopup={false} />
+          </StageBox>
+        ),
+      };
     });
-    const activeKey = matched ? this._activeKey : (items[0] as SettingField).name;
+    const activeKey = this._activeKey;
 
     const className = classNames('lc-settings-main', {
       'lc-settings-hide-tabs':
@@ -243,19 +242,16 @@ export class SettingsPrimaryPane extends Component<ISettingsPrimaryPaneProps, { 
     });
     return (
       <div className={className}>
-        { this.renderBreadcrumb() }
-        <Tab
+        {this.renderBreadcrumb()}
+        <Tabs
+          className="lc-settings-tabs"
+          defaultActiveKey={items[0]?.name}
           activeKey={activeKey}
-          onChange={(tabKey) => {
-            this._activeKey = tabKey;
-          }}
-          navClassName="lc-settings-tabs"
-          animation={false}
-          excessMode="dropdown"
-          contentClassName="lc-settings-tabs-content"
-        >
-          {tabs}
-        </Tab>
+          items={tabs}
+          indicator={{ align: 'center' }}
+          onChange={this.onChange}
+          onTabClick={this.onTabClick}
+        />
       </div>
     );
   }

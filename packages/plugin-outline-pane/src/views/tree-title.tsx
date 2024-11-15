@@ -1,4 +1,4 @@
-import { KeyboardEvent, FocusEvent, Fragment, PureComponent } from 'react';
+import { KeyboardEvent, FocusEvent, Fragment, PureComponent, useState } from 'react';
 import classNames from 'classnames';
 import { createIcon } from '@alilc/lowcode-utils';
 import { IPublicApiEvent, IPublicModelNode } from '@alilc/lowcode-types';
@@ -6,7 +6,6 @@ import TreeNode from '../controllers/tree-node';
 import {
   IconLock,
   IconUnlock,
-  IconArrowRight,
   IconEyeClose,
   IconEye,
   IconCond,
@@ -15,7 +14,10 @@ import {
   IconRadio,
   IconSetting,
   IconDelete,
+  IconExpansionLevel,
 } from '../icons';
+import { Dropdown, MenuProps } from 'antd';
+import { MinusSquareOutlined, PlusSquareOutlined } from '@ant-design/icons';
 
 function emitOutlineEvent(
   event: IPublicApiEvent,
@@ -144,6 +146,23 @@ export default class TreeTitle extends PureComponent<{
     const { node } = treeNode;
     treeNode.deleteNode(node);
   };
+
+  onMouseEnter = () => {
+    const { treeNode } = this.props;
+    const { pluginContext } = treeNode;
+    const { project } = pluginContext;
+    const doc = project.currentDocument;
+    doc?.detecting.capture(treeNode.nodeId);
+  };
+
+  onMouseLeave = () => {
+    const { treeNode } = this.props;
+    const { pluginContext } = treeNode;
+    const { project } = pluginContext;
+    const doc = project.currentDocument;
+    doc?.detecting.release(treeNode.nodeId);
+  };
+
   render() {
     const { treeNode, isModal } = this.props;
     const { pluginContext } = treeNode;
@@ -203,6 +222,8 @@ export default class TreeTitle extends PureComponent<{
             node.setConditionalVisible();
           }
         }}
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
       >
         {isModal && this.state.visible && (
           <div
@@ -270,6 +291,13 @@ export default class TreeTitle extends PureComponent<{
                   {/* @ts-ignore */}
                   <Tip>{intlNode('Conditional')}</Tip>
                 </a>
+              )}
+              {!isCNode && (
+                <ExpandionLevel
+                  expandable={this.props.expandable}
+                  expanded={this.props.expanded}
+                  treeNode={treeNode}
+                />
               )}
             </>
           )}
@@ -355,7 +383,8 @@ class AnchorBtn extends PureComponent<{
         className="tree-node-anchor-btn"
         onClick={(e) => {
           e.stopPropagation();
-          let isAnchored = false, isAnchoredNode: IPublicModelNode | undefined = undefined;
+          let isAnchored = false,
+            isAnchoredNode: IPublicModelNode | undefined = undefined;
           treeNode.node.document?.nodesMap.forEach((node) => {
             if (treeNode.node.id !== node.id && node.isAnchored) {
               isAnchored = true;
@@ -431,9 +460,7 @@ class ExpandBtn extends PureComponent<{
       <div
         className="tree-node-expand-btn"
         onClick={(e) => {
-          if (expanded) {
-            e.stopPropagation();
-          }
+          e.stopPropagation();
           emitOutlineEvent(
             treeNode.pluginContext.event,
             expanded ? 'collapse' : 'expand',
@@ -442,8 +469,81 @@ class ExpandBtn extends PureComponent<{
           treeNode.setExpanded(!expanded);
         }}
       >
-        <IconArrowRight size="small" />
+        {expanded ? <MinusSquareOutlined /> : <PlusSquareOutlined />}
       </div>
     );
+  }
+}
+
+export const ExpandionLevelBtn = (props: any) => {
+  const { treeNode, expanded } = props;
+  const [visible, setVisible] = useState(false);
+  // 设置节点展开收起状态
+  const getTreeNode = (currentTreeNode: any, depth: number, key: string) => {
+    const list =
+      currentTreeNode.children.length == 0 ? currentTreeNode.slots : currentTreeNode.children;
+    list?.map((item: any) => {
+      const childrenDepth = item.depth;
+      if (!item.hasChildren() && !item.hasSlots()) return;
+      if (childrenDepth - depth < Number(key)) {
+        //展开对应层级
+        item.setExpanded(true);
+        if (item.hasChildren() || item.hasSlots()) {
+          getTreeNode(item, depth, key);
+        }
+      } else {
+        //更深的层级收起
+        item.tree.collapseAllDecendants(item);
+      }
+    });
+  };
+
+  const onClick: MenuProps['onClick'] = e => {
+    const { depth } = treeNode;
+    const key = e.key;
+
+    // all全部展开/收起
+    if (key == 'all') {
+      if (!expanded) {
+        treeNode.tree.expandAllDecendants(treeNode);
+      } else {
+        treeNode.tree.collapseAllDecendants(treeNode);
+      }
+      return;
+    }
+    treeNode.setExpanded(true);
+    getTreeNode(treeNode, depth, key);
+  };
+  return (
+    <Dropdown
+      trigger={['click']}
+      menu={{
+        items: [
+          { key: '1', label: '第1层级' },
+          { key: '2', label: '第2层级' },
+          { key: '3', label: '第3层级' },
+          { key: 'all', label: '全部' },
+        ],
+        onClick,
+      }}
+    >
+      <a onClick={(e) => e.stopPropagation()} className='tree-root-level-btn'>
+        <IconExpansionLevel />
+      </a>
+    </Dropdown>
+  );
+};
+
+class ExpandionLevel extends PureComponent<{
+  treeNode: TreeNode;
+  expanded: boolean;
+  expandable: boolean;
+}> {
+  render() {
+    if (!this.props.expandable) {
+      return <i className="tree-node-expand-placeholder" />;
+    }
+
+    return <ExpandionLevelBtn {...this.props} />;
   }
 }
