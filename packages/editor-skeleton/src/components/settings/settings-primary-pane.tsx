@@ -37,7 +37,7 @@ export class SettingsPrimaryPane extends Component<
 
   static contextType = SkeletonContext;
 
-  declare context: React.ContextType<typeof SkeletonContext>;
+  // declare context: React.ContextType<typeof SkeletonContext>;
 
   constructor(props: ISettingsPrimaryPaneProps) {
     super(props);
