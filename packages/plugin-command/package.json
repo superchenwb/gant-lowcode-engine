@@ -1,6 +1,6 @@
 {
   "name": "@gant-lowcode/lowcode-plugin-command",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "> TODO: description",
   "author": "liujuping <liujup@foxmail.com>",
   "homepage": "https://github.com/alibaba/lowcode-engine#readme",
@@ -30,8 +30,8 @@
     "url": "https://github.com/alibaba/lowcode-engine/issues"
   },
   "dependencies": {
-    "@gant-lowcode/lowcode-types": "1.3.2",
-    "@gant-lowcode/lowcode-utils": "1.3.2"
+    "@gant-lowcode/lowcode-types": "1.3.3",
+    "@gant-lowcode/lowcode-utils": "1.3.3"
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18"
