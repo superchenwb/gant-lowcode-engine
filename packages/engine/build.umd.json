@@ -3,7 +3,7 @@
     "engine-core": "src/index"
   },
   "sourceMap": true,
-  "library": "AliLowCodeEngine",
+  "library": "GantLowCodeEngine",
   "libraryTarget": "umd",
   "externals": {
     "react": "var window.React",
@@ -15,7 +15,7 @@
     "monaco-editor/esm/vs/editor/editor.api": "var window.monaco",
     "monaco-editor/esm/vs/editor/editor.main.js": "var window.monaco",
     "@alifd/next": "var Next",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@gant-lowcode/lowcode-engine-ext": "var window.GantLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"
   },

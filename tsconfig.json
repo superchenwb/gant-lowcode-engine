@@ -33,7 +33,7 @@
     "baseUrl": "./packages",
     "useDefineForClassFields": true,
     "paths": {
-      "@alilc/lowcode-*": ["./*/src"]
+      "@gant-lowcode/lowcode-*": ["./*/src"]
     },
     "outDir": "lib"
   },

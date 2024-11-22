@@ -34,11 +34,11 @@ npm install && npm run setup
   "proxy": [
     [
       "https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/(.*)/dist/js/engine-core.js",
-      "http://localhost:5555/js/AliLowCodeEngine.js"
+      "http://localhost:5555/js/GantLowCodeEngine.js"
     ],
     [
       "https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/(.*)/dist/css/engine-core.css",
-      "http://localhost:5555/css/AliLowCodeEngine.css"
+      "http://localhost:5555/css/GantLowCodeEngine.css"
     ],
     [
       "https?://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/(.*)/dist/js/react-simulator-renderer.js",

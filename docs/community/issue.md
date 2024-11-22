@@ -40,15 +40,15 @@ sidebar_position: 2
 - 在控制台输入
 ```json
 // 当前 doc
-const doc = window.AliLowCodeEngine.project.currentDocument
+const doc = window.GantLowCodeEngine.project.currentDocument
 
 // 新建 doc 并成功切换
-window.AliLowCodeEngine.project.openDocument({
+window.GantLowCodeEngine.project.openDocument({
     componentName: 'Page'
 });
 
 // 无法切换回来
-window.AliLowCodeEngine.project.openDocument('docl4xkca5b')
+window.GantLowCodeEngine.project.openDocument('docl4xkca5b')
 ```
 
 预期效果：

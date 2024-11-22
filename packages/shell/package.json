@@ -1,7 +1,7 @@
 {
   "name": "@gant-lowcode/lowcode-shell",
   "version": "1.3.5",
-  "description": "Shell Layer for AliLowCodeEngine",
+  "description": "Shell Layer for GantLowCodeEngine",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [

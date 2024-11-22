@@ -1,6 +1,6 @@
 {
   "entry": {
-    "AliLowCodeEngine": "../engine/src/index.ts",
+    "GantLowCodeEngine": "../engine/src/index.ts",
     "ReactSimulatorRenderer": "../react-simulator-renderer/src/index.ts"
   },
   "vendor": false,
@@ -16,8 +16,8 @@
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
     "rax": "var window.Rax",
-    "@gant-lowcode/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@gant-lowcode/lowcode-engine": "var window.GantLowCodeEngine",
+    "@gant-lowcode/lowcode-engine-ext": "var window.GantLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"
   },

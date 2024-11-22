@@ -22,7 +22,7 @@ export function createSimulator(
   const doc = iframe.contentDocument!;
   const innerPlugins = host.designer.editor.get('innerPlugins');
 
-  win.AliLowCodeEngine = innerPlugins._getLowCodePluginContext({});
+  win.GantLowCodeEngine = innerPlugins._getLowCodePluginContext({});
   win.LCSimulatorHost = host;
   win._ = window._;
 

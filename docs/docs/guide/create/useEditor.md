@@ -60,7 +60,7 @@ sidebar_position: 0
 <!-- 低代码引擎的页面主题样式，可以替换为 theme-lowcode-dark -->
 <link rel="stylesheet" href="https://alifd.alicdn.com/npm/@alifd/theme-lowcode-light/0.2.0/next.min.css">
 <!-- 低代码引擎官方扩展的样式 -->
-<link rel="stylesheet" href="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css" />
+<link rel="stylesheet" href="https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine-ext/1.0.5/dist/css/engine-ext.css" />
 
 <!-- React，可替换为 production 包 -->
 <script src="https://g.alicdn.com/code/lib/react/16.14.0/umd/react.development.js"></script>
@@ -78,7 +78,7 @@ sidebar_position: 0
 <!-- 低代码引擎的主包 -->
 <script crossorigin="anonymous" src="https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/1.0.18/dist/js/engine-core.js"></script>
 <!-- 低代码引擎官方扩展的主包 -->
-<script crossorigin="anonymous" src="https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"></script>
+<script crossorigin="anonymous" src="https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine-ext/1.0.5/dist/js/engine-ext.js"></script>
 ```
 > 注：如果 unpkg 的服务比较缓慢，您可以使用官方 CDN 来获得确定版本的低代码引擎，如对于引擎的 1.0.18 版本，可用以下官方 CDN 替代
 > - [https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/1.0.18/dist/js/engine-core.js](https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/1.0.18/dist/js/engine-core.js)
@@ -95,8 +95,8 @@ sidebar_position: 0
     "react-dom": "var window.ReactDOM",
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
-    "@gant-lowcode/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
+    "@gant-lowcode/lowcode-engine": "var window.GantLowCodeEngine",
+    "@gant-lowcode/lowcode-engine-ext": "var window.GantLowCodeEngineExt",
     "moment": "var window.moment",
     "lodash": "var window._"
   }
@@ -105,11 +105,11 @@ sidebar_position: 0
 
 ### 初始化低代码编辑器
 
-正确引入后，我们可以直接通过 window 上的变量进行引用，如 `window.AliLowCodeEngine.init`。您可以直接通过此方式初始化低代码引擎：
+正确引入后，我们可以直接通过 window 上的变量进行引用，如 `window.GantLowCodeEngine.init`。您可以直接通过此方式初始化低代码引擎：
 
 ```javascript
 // 确保在执行此命令前，在 <body> 中已有一个 id 为 lce-container 的 <div />
-window.AliLowCodeEngine.init(document.getElementById('lce-container'), {
+window.GantLowCodeEngine.init(document.getElementById('lce-container'), {
   enableCondition: true,
   enableCanvasLock: true,
 });

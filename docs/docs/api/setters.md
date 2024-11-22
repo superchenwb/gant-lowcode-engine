@@ -64,7 +64,7 @@ registerSetter(
 ### 注册官方内置 Setter 到设计器中
 ```typescript
 import { setters, skeleton } from '@gant-lowcode/lowcode-engine';
-import { setterMap, pluginMap } from '@alilc/lowcode-engine-ext';
+import { setterMap, pluginMap } from '@gant-lowcode/lowcode-engine-ext';
 import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const SetterRegistry = (ctx: IPublicModelPluginContext) => {
