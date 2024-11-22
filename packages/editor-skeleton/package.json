@@ -1,6 +1,6 @@
 {
   "name": "@gant-lowcode/lowcode-editor-skeleton",
-  "version": "1.3.3",
+  "version": "1.3.4",
   "description": "alibaba lowcode editor skeleton",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -19,10 +19,10 @@
   ],
   "dependencies": {
     "@alifd/next": "^1.20.12",
-    "@gant-lowcode/lowcode-designer": "1.3.3",
-    "@gant-lowcode/lowcode-editor-core": "1.3.3",
-    "@gant-lowcode/lowcode-types": "1.3.3",
-    "@gant-lowcode/lowcode-utils": "1.3.3",
+    "@gant-lowcode/lowcode-designer": "1.3.4",
+    "@gant-lowcode/lowcode-editor-core": "1.3.4",
+    "@gant-lowcode/lowcode-types": "1.3.4",
+    "@gant-lowcode/lowcode-utils": "1.3.4",
     "antd": "^5.21.6",
     "classnames": "^2.2.6",
     "react": "^18.3.1",
