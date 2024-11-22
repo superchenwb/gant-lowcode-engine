@@ -1,7 +1,7 @@
 {
   "name": "@alilc/lowcode-material-parser",
   "version": "1.0.3",
-  "description": "material parser for Ali lowCode engine",
+  "description": "material parser for Gant lowCode engine",
   "main": "lib/index.js",
   "files": [
     "lib",

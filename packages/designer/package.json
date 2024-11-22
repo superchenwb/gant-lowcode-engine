@@ -53,7 +53,7 @@
     "type": "http",
     "url": "https://github.com/alibaba/lowcode-engine/tree/main/packages/designer"
   },
-  "gitHead": "5b978ba5555564ad52f4051d0136c3a8507bfa6d",
+  "gitHead": "3bf74b0dd95e0ade171c0e7b08758e28de57a8b8",
   "bugs": "https://github.com/alibaba/lowcode-engine/issues",
   "homepage": "https://github.com/alibaba/lowcode-engine/#readme"
 }
