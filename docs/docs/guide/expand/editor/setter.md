@@ -204,7 +204,7 @@ bindFunction = () => {
 
 ```typescript
 import AltStringSetter from './AltStringSetter';
-const registerSetter = window.AliLowCodeEngine.setters.registerSetter;
+const registerSetter = window.GantLowCodeEngine.setters.registerSetter;
 registerSetter('AltStringSetter', AltStringSetter);
 ```
 

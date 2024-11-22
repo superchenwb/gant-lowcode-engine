@@ -42,8 +42,8 @@ Sceenshots for further information. (If applicable.) / 一些有用的截图将�
 ---
 
 ## **Environments (please complete the following information) (required):** / **请提供如下信息（必填）**
- - AliLowCodeEngine version: [e.g. 1.0.0] / 低代码引擎版本
- - AliLowCodeEngineExt version: [e.g. 1.0.0] / 低代码引擎扩展包版本
+ - GantLowCodeEngine version: [e.g. 1.0.0] / 低代码引擎版本
+ - GantLowCodeEngineExt version: [e.g. 1.0.0] / 低代码引擎扩展包版本
  - Browser [e.g. chrome, safari] / 浏览器版本
  - materials / plugins / tools / 其他物料 / 插件 / 工具链版本
 

@@ -77,7 +77,7 @@ export default defineConfig(() => ({
     'react-dom/client': 'ReactDOM',
     '@alifd/next': 'Next',
     lodash: 'var window._',
-    '@gant-lowcode/lowcode-engine': 'var window.AliLowCodeEngine',
+    '@gant-lowcode/lowcode-engine': 'var window.GantLowCodeEngine',
   },
   plugins: [
     fusion({

@@ -90,8 +90,8 @@ init(document.getElementById('lce'));
 ```json
 {
   "externals": {
-    "@gant-lowcode/lowcode-engine": "var window.AliLowCodeEngine",
-    "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
+    "@gant-lowcode/lowcode-engine": "var window.GantLowCodeEngine",
+    "@gant-lowcode/lowcode-engine-ext": "var window.GantLowCodeEngineExt"
   }
 }
 ```
