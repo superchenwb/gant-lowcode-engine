@@ -35,5 +35,6 @@
   },
   "devDependencies": {
     "@alib/build-scripts": "^0.1.18"
-  }
+  },
+  "gitHead": "5b978ba5555564ad52f4051d0136c3a8507bfa6d"
 }
