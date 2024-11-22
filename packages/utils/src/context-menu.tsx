@@ -6,10 +6,10 @@ import {
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
 } from '@gant-lowcode/lowcode-types';
-import { isString, Logger } from '@gant-lowcode/lowcode-utils';
+import { Logger } from './logger';
 import React from 'react';
 import { Item, Separator, Submenu, contextMenu } from './react-contexify';
-import './context-menu.scss';
+import './context-menu.css';
 
 export * from './react-contexify';
 
