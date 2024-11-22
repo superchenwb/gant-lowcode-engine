@@ -1,6 +1,6 @@
-import { IPublicModelSimulatorRender } from '@alilc/lowcode-types';
+import { IPublicModelSimulatorRender } from '@gant-lowcode/lowcode-types';
 import { simulatorRenderSymbol } from '../symbols';
-import { BuiltinSimulatorRenderer } from '@alilc/lowcode-designer';
+import { BuiltinSimulatorRenderer } from '@gant-lowcode/lowcode-designer';
 
 export class SimulatorRender implements IPublicModelSimulatorRender {
   private readonly [simulatorRenderSymbol]: BuiltinSimulatorRenderer;

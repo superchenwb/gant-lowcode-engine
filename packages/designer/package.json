@@ -1,5 +1,5 @@
 {
-  "name": "@alilc/lowcode-designer",
+  "name": "@gant-lowcode/lowcode-designer",
   "version": "1.3.2",
   "description": "Designer for Ali LowCode Engine",
   "main": "lib/index.js",
@@ -15,9 +15,9 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@alilc/lowcode-editor-core": "1.3.2",
-    "@alilc/lowcode-types": "1.3.2",
-    "@alilc/lowcode-utils": "1.3.2",
+    "@gant-lowcode/lowcode-editor-core": "1.3.2",
+    "@gant-lowcode/lowcode-types": "1.3.2",
+    "@gant-lowcode/lowcode-utils": "1.3.2",
     "antd": "^5.21.6",
     "classnames": "^2.2.6",
     "react": "^18.3.1",

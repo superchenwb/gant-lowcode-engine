@@ -465,7 +465,7 @@ import parse from '@alilc/lowcode-material-parser';
 }
 
 // BackwardSetter
-import { SettingTarget, DynamicSetter } from '@alilc/lowcode-types';
+import { SettingTarget, DynamicSetter } from '@gant-lowcode/lowcode-types';
 const BackwardSetter: DynamicSetter = (target: SettingTarget) => {
   return {
     componentName: (

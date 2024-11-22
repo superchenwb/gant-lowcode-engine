@@ -1,5 +1,5 @@
-import { isElement } from '@alilc/lowcode-utils';
-import { IPublicModelScrollTarget, IPublicTypeScrollable, IPublicModelScroller } from '@alilc/lowcode-types';
+import { isElement } from '@gant-lowcode/lowcode-utils';
+import { IPublicModelScrollTarget, IPublicTypeScrollable, IPublicModelScroller } from '@gant-lowcode/lowcode-types';
 
 export interface IScrollTarget extends IPublicModelScrollTarget {
 }

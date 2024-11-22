@@ -1,8 +1,8 @@
 import { PureComponent } from 'react';
 import { ResourceView } from './resource-view';
-import { engineConfig, observer } from '@alilc/lowcode-editor-core';
+import { engineConfig, observer } from '@gant-lowcode/lowcode-editor-core';
 import { EditorWindow } from '../window';
-import { BuiltinLoading } from '@alilc/lowcode-designer';
+import { BuiltinLoading } from '@gant-lowcode/lowcode-designer';
 import { DesignerView } from '../inner-plugins/webview';
 
 @observer

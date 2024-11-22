@@ -5,7 +5,7 @@ import {
   isDragNodeObject,
   isDragAnyObject,
   isLocationChildrenDetail,
-} from '@alilc/lowcode-utils';
+} from '@gant-lowcode/lowcode-utils';
 import {
   IPublicModelDragObject,
   IPublicTypeScrollable,
@@ -17,7 +17,7 @@ import {
   IPublicModelScroller,
   IPublicModelScrollTarget,
   IPublicModelLocateEvent,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import TreeNode from './tree-node';
 import { IndentTrack } from '../helper/indent-track';
 import DwellTimer from '../helper/dwell-timer';

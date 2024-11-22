@@ -1,4 +1,4 @@
-import { IPublicTypeJSSlot } from '@alilc/lowcode-types';
+import { IPublicTypeJSSlot } from '@gant-lowcode/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isJSSlot(data: any): data is IPublicTypeJSSlot {

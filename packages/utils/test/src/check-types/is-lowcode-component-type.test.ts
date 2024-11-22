@@ -1,5 +1,5 @@
 import { isLowCodeComponentType } from '../../../src/check-types/is-lowcode-component-type';
-import { IPublicTypeLowCodeComponent, IPublicTypeProCodeComponent } from '@alilc/lowcode-types';
+import { IPublicTypeLowCodeComponent, IPublicTypeProCodeComponent } from '@gant-lowcode/lowcode-types';
 
 describe('isLowCodeComponentType', () => {
   test('should return true for a low code component type', () => {

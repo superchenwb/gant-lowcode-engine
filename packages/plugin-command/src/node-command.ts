@@ -1,5 +1,5 @@
-import { IPublicModelPluginContext, IPublicTypeNodeSchema, IPublicTypePlugin, IPublicTypePropType } from '@alilc/lowcode-types';
-import { isNodeSchema } from '@alilc/lowcode-utils';
+import { IPublicModelPluginContext, IPublicTypeNodeSchema, IPublicTypePlugin, IPublicTypePropType } from '@gant-lowcode/lowcode-types';
+import { isNodeSchema } from '@gant-lowcode/lowcode-utils';
 
 const sampleNodeSchema: IPublicTypePropType = {
   type: 'shape',

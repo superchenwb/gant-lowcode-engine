@@ -1,4 +1,4 @@
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 // 注册默认的 setters
 export const setterRegistry = (ctx: IPublicModelPluginContext) => {

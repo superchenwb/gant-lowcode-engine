@@ -1,11 +1,11 @@
-import { globalContext } from '@alilc/lowcode-editor-core';
+import { globalContext } from '@gant-lowcode/lowcode-editor-core';
 import {
   ISkeleton,
   SkeletonEvents,
-} from '@alilc/lowcode-editor-skeleton';
+} from '@gant-lowcode/lowcode-editor-skeleton';
 import { skeletonSymbol } from '../symbols';
-import { IPublicApiSkeleton, IPublicModelSkeletonItem, IPublicTypeConfigTransducer, IPublicTypeDisposable, IPublicTypeSkeletonConfig, IPublicTypeWidgetConfigArea } from '@alilc/lowcode-types';
-import { getLogger } from '@alilc/lowcode-utils';
+import { IPublicApiSkeleton, IPublicModelSkeletonItem, IPublicTypeConfigTransducer, IPublicTypeDisposable, IPublicTypeSkeletonConfig, IPublicTypeWidgetConfigArea } from '@gant-lowcode/lowcode-types';
+import { getLogger } from '@gant-lowcode/lowcode-utils';
 import { SkeletonItem } from '../model/skeleton-item';
 
 const innerSkeletonSymbol = Symbol('skeleton');

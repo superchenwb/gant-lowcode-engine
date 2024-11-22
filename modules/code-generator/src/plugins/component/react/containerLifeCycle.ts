@@ -12,7 +12,7 @@ import {
   ICodeStruct,
   IContainerInfo,
 } from '../../../types';
-import { isJSFunction, isJSExpression } from '@alilc/lowcode-types';
+import { isJSFunction, isJSExpression } from '@gant-lowcode/lowcode-types';
 import { isJSExpressionFn } from '../../../utils/common';
 
 export interface PluginConfig {

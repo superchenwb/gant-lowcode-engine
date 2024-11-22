@@ -1,5 +1,5 @@
-import type { IExclusiveGroup } from '@alilc/lowcode-designer';
-import { IPublicModelExclusiveGroup, IPublicModelNode } from '@alilc/lowcode-types';
+import type { IExclusiveGroup } from '@gant-lowcode/lowcode-designer';
+import { IPublicModelExclusiveGroup, IPublicModelNode } from '@gant-lowcode/lowcode-types';
 import { conditionGroupSymbol, nodeSymbol } from '../symbols';
 import { Node } from './node';
 

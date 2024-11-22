@@ -1,5 +1,5 @@
-import { IPublicApiEvent } from '@alilc/lowcode-types';
-import { Logger } from '@alilc/lowcode-utils';
+import { IPublicApiEvent } from '@gant-lowcode/lowcode-types';
+import { Logger } from '@gant-lowcode/lowcode-utils';
 import EventEmitter from 'events';
 
 const logger = new Logger({ level: 'warn', bizName: 'event-bus' });

@@ -1,5 +1,5 @@
-import { IPublicTypeIconType, IPublicTypeTitleContent, TipContent } from '@alilc/lowcode-types';
-import { isI18nData, isTitleConfig } from '@alilc/lowcode-utils';
+import { IPublicTypeIconType, IPublicTypeTitleContent, TipContent } from '@gant-lowcode/lowcode-types';
+import { isI18nData, isTitleConfig } from '@gant-lowcode/lowcode-utils';
 import { isValidElement } from 'react';
 
 export function composeTitle(title?: IPublicTypeTitleContent, icon?: IPublicTypeIconType, tip?: TipContent, tipAsTitle?: boolean, noIcon?: boolean) {

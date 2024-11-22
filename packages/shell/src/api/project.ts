@@ -1,8 +1,8 @@
 import {
   BuiltinSimulatorHost,
   IProject as InnerProject,
-} from '@alilc/lowcode-designer';
-import { globalContext } from '@alilc/lowcode-editor-core';
+} from '@gant-lowcode/lowcode-designer';
+import { globalContext } from '@gant-lowcode/lowcode-editor-core';
 import {
   IPublicTypeRootSchema,
   IPublicTypeProjectSchema,
@@ -14,11 +14,11 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeDisposable,
   IPublicTypeAppConfig,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { DocumentModel as ShellDocumentModel } from '../model';
 import { SimulatorHost } from './simulator-host';
 import { editorSymbol, projectSymbol, simulatorHostSymbol, documentSymbol } from '../symbols';
-import { getLogger } from '@alilc/lowcode-utils';
+import { getLogger } from '@gant-lowcode/lowcode-utils';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-project' });
 

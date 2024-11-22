@@ -6,7 +6,7 @@ import {
   InterpretDataSourceConfig,
   isJSExpression,
   isJSFunction,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import changeCase from 'change-case';
 
 import {

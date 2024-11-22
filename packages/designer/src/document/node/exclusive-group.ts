@@ -1,6 +1,6 @@
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { uniqueId } from '@alilc/lowcode-utils';
-import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@alilc/lowcode-types';
+import { obx, computed, makeObservable } from '@gant-lowcode/lowcode-editor-core';
+import { uniqueId } from '@gant-lowcode/lowcode-utils';
+import { IPublicTypeTitleContent, IPublicModelExclusiveGroup } from '@gant-lowcode/lowcode-types';
 import type { INode } from './node';
 import { intl } from '../../locale';
 

@@ -1,4 +1,4 @@
-import { action, makeObservable, obx, engineConfig, IEditor, FocusTracker } from '@alilc/lowcode-editor-core';
+import { action, makeObservable, obx, engineConfig, IEditor, FocusTracker } from '@gant-lowcode/lowcode-editor-core';
 import {
   DockConfig,
   WidgetConfig,
@@ -18,7 +18,7 @@ import { PanelDock } from './widget/panel-dock';
 import { Dock } from './widget/dock';
 import { Stage, StageConfig } from './widget/stage';
 import { isValidElement } from 'react';
-import { isPlainObject, uniqueId, Logger } from '@alilc/lowcode-utils';
+import { isPlainObject, uniqueId, Logger } from '@gant-lowcode/lowcode-utils';
 import { Divider } from 'antd';
 import {
   EditorConfig,
@@ -29,7 +29,7 @@ import {
   IPublicApiSkeleton,
   IPublicTypeConfigTransducer,
   IPublicTypePanelConfig,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 
 const logger = new Logger({ level: 'warn', bizName: 'skeleton' });
 

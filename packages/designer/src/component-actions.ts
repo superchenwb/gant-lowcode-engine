@@ -1,5 +1,5 @@
-import { IPublicModelNode, IPublicTypeComponentAction, IPublicTypeMetadataTransducer } from '@alilc/lowcode-types';
-import { engineConfig } from '@alilc/lowcode-editor-core';
+import { IPublicModelNode, IPublicTypeComponentAction, IPublicTypeMetadataTransducer } from '@gant-lowcode/lowcode-types';
+import { engineConfig } from '@gant-lowcode/lowcode-editor-core';
 import { intlNode } from './locale';
 import {
   IconLock,

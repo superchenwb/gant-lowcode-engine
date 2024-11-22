@@ -1,4 +1,4 @@
-import { getLogger } from '@alilc/lowcode-utils';
+import { getLogger } from '@gant-lowcode/lowcode-utils';
 import baseRendererFactory from './base';
 import { IBaseRendererProps, IBaseRenderComponent } from '../types';
 

@@ -1,5 +1,5 @@
 import { ComponentType } from 'react';
-import { IPublicTypeComponentMetadata, IPublicTypeNodeSchema, IPublicTypeScrollable, IPublicTypeComponentInstance, IPublicModelSensor, IPublicTypeNodeInstance, IPublicTypePackage } from '@alilc/lowcode-types';
+import { IPublicTypeComponentMetadata, IPublicTypeNodeSchema, IPublicTypeScrollable, IPublicTypeComponentInstance, IPublicModelSensor, IPublicTypeNodeInstance, IPublicTypePackage } from '@gant-lowcode/lowcode-types';
 import { Point, ScrollTarget, ILocateEvent, IDesigner } from './designer';
 import { BuiltinSimulatorRenderer } from './builtin-simulator/renderer';
 import { INode } from './document';

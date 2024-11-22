@@ -1,8 +1,8 @@
 import {
   IModalNodesManager as InnerModalNodesManager,
   INode as InnerNode,
-} from '@alilc/lowcode-designer';
-import { IPublicModelModalNodesManager, IPublicModelNode } from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-designer';
+import { IPublicModelModalNodesManager, IPublicModelNode } from '@gant-lowcode/lowcode-types';
 import { Node as ShellNode } from './node';
 import { nodeSymbol, modalNodesManagerSymbol } from '../symbols';
 

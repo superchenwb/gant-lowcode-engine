@@ -5,8 +5,8 @@ import {
   IPublicModelPluginContext,
   IPublicTypeContextMenuAction,
   IPublicTypeContextMenuItem,
-} from '@alilc/lowcode-types';
-import { isString, Logger } from '@alilc/lowcode-utils';
+} from '@gant-lowcode/lowcode-types';
+import { isString, Logger } from '@gant-lowcode/lowcode-utils';
 import React from 'react';
 import { Item, Separator, Submenu, contextMenu } from './react-contexify';
 import './context-menu.scss';

@@ -1,4 +1,4 @@
-import { IPublicTypeJSExpression } from '@alilc/lowcode-types';
+import { IPublicTypeJSExpression } from '@gant-lowcode/lowcode-types';
 import { isObject } from '../is-object';
 
 /**

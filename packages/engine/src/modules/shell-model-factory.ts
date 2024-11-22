@@ -1,13 +1,13 @@
 import {
   INode,
   ISettingField,
-} from '@alilc/lowcode-designer';
-import { IShellModelFactory, IPublicModelNode } from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-designer';
+import { IShellModelFactory, IPublicModelNode } from '@gant-lowcode/lowcode-types';
 import { IPublicModelSettingField } from '../../../types/src/shell/model/setting-field';
 import {
   Node,
   SettingField,
-} from '@alilc/lowcode-shell';
+} from '@gant-lowcode/lowcode-shell';
 class ShellModelFactory implements IShellModelFactory {
   createNode(node: INode | null | undefined): IPublicModelNode | null {
     return Node.create(node);

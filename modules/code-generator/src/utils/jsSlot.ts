@@ -1,4 +1,4 @@
-import { IPublicTypeJSSlot, isJSSlot, IPublicTypeNodeData } from '@alilc/lowcode-types';
+import { IPublicTypeJSSlot, isJSSlot, IPublicTypeNodeData } from '@gant-lowcode/lowcode-types';
 import { CodeGeneratorError, NodeGenerator, IScope } from '../types';
 import { unwrapJsExprQuoteInJsx } from './jsxHelpers';
 

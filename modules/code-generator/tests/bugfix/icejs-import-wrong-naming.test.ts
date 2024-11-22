@@ -1,7 +1,7 @@
 import CodeGenerator from '../../src';
 import * as fs from 'fs';
 import * as path from 'path';
-import { IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+import { IPublicTypeProjectSchema } from '@gant-lowcode/lowcode-types';
 import { createDiskPublisher } from '../helpers/solutionHelper';
 
 const testCaseBaseName = path.basename(__filename, '.test.ts');

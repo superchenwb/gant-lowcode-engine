@@ -62,7 +62,7 @@ sidebar_position: 4
 import ReactDOM from 'react-dom';
 import React, { useState } from 'react';
 import { Loading } from '@alifd/next';
-import ReactRenderer from '@alilc/lowcode-react-renderer';
+import ReactRenderer from '@gant-lowcode/lowcode-react-renderer';
 import { createFetchHandler } from '@alilc/lowcode-datasource-fetch-handler';
 import {
   getProjectSchemaFromLocalStorage,
@@ -127,9 +127,9 @@ ReactDOM.render(<SamplePreview />, document.getElementById('ice-container'));
 
 从资产包中解析 react 组件列表的逻辑如下，[详见](https://github.com/alibaba/lowcode-demo/blob/main/demo-lowcode-component/src/parse-assets.ts)：
 ```ts
-import { ComponentDescription, ComponentSchema, RemoteComponentDescription } from '@alilc/lowcode-types';
-import { buildComponents, AssetsJson, AssetLoader } from '@alilc/lowcode-utils';
-import ReactRenderer from '@alilc/lowcode-react-renderer';
+import { ComponentDescription, ComponentSchema, RemoteComponentDescription } from '@gant-lowcode/lowcode-types';
+import { buildComponents, AssetsJson, AssetLoader } from '@gant-lowcode/lowcode-utils';
+import ReactRenderer from '@gant-lowcode/lowcode-react-renderer';
 import { injectComponents } from '@alilc/lowcode-plugin-inject';
 import React, { createElement } from 'react';
 

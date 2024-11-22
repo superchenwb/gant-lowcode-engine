@@ -1,4 +1,4 @@
-import type { IPublicTypeJSExpression, IPublicTypeJSFunction } from '@alilc/lowcode-types';
+import type { IPublicTypeJSExpression, IPublicTypeJSFunction } from '@gant-lowcode/lowcode-types';
 import changeCase from 'change-case';
 import short from 'short-uuid';
 import { DependencyType, IDependency, IExternalDependency, IInternalDependency } from '../types';

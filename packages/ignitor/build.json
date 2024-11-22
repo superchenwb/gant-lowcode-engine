@@ -16,7 +16,7 @@
     "prop-types": "var window.PropTypes",
     "@alifd/next": "var window.Next",
     "rax": "var window.Rax",
-    "@alilc/lowcode-engine": "var window.AliLowCodeEngine",
+    "@gant-lowcode/lowcode-engine": "var window.AliLowCodeEngine",
     "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt",
     "moment": "var moment",
     "lodash": "var _"

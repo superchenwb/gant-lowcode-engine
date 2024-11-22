@@ -1,6 +1,6 @@
-import { INode, IPublicTypePropChangeOptions } from '@alilc/lowcode-designer';
-import { GlobalEvent, IPublicEnumTransformStage, IPublicTypeNodeSchema, IPublicTypeEngineOptions } from '@alilc/lowcode-types';
-import { isReactComponent, cloneEnumerableProperty } from '@alilc/lowcode-utils';
+import { INode, IPublicTypePropChangeOptions } from '@gant-lowcode/lowcode-designer';
+import { GlobalEvent, IPublicEnumTransformStage, IPublicTypeNodeSchema, IPublicTypeEngineOptions } from '@gant-lowcode/lowcode-types';
+import { isReactComponent, cloneEnumerableProperty } from '@gant-lowcode/lowcode-utils';
 import { debounce } from '../utils/common';
 import adapter from '../adapter';
 import * as types from '../types/index';

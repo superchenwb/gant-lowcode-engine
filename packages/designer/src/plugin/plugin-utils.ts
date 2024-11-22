@@ -1,5 +1,5 @@
 import { isPlainObject } from 'lodash';
-import { IPublicTypePluginRegisterOptions, IPublicTypePluginDeclaration } from '@alilc/lowcode-types';
+import { IPublicTypePluginRegisterOptions, IPublicTypePluginDeclaration } from '@gant-lowcode/lowcode-types';
 
 export function isValidPreferenceKey(
   key: string,

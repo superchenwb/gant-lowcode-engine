@@ -1,7 +1,7 @@
-import { computed, makeObservable, obx, action } from '@alilc/lowcode-editor-core';
-import { IPublicTypePropsList, IPublicTypeCompositeValue, IPublicEnumTransformStage, IBaseModelProps } from '@alilc/lowcode-types';
-import type { IPublicTypePropsMap } from '@alilc/lowcode-types';
-import { uniqueId, compatStage } from '@alilc/lowcode-utils';
+import { computed, makeObservable, obx, action } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicTypePropsList, IPublicTypeCompositeValue, IPublicEnumTransformStage, IBaseModelProps } from '@gant-lowcode/lowcode-types';
+import type { IPublicTypePropsMap } from '@gant-lowcode/lowcode-types';
+import { uniqueId, compatStage } from '@gant-lowcode/lowcode-utils';
 import { Prop, UNSET } from './prop';
 import type { IProp } from './prop';
 import { INode } from '../node';

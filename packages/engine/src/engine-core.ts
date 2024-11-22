@@ -11,7 +11,7 @@ import {
   Hotkey as InnerHotkey,
   IEditor,
   Command as InnerCommand,
-} from '@alilc/lowcode-editor-core';
+} from '@gant-lowcode/lowcode-editor-core';
 import {
   IPublicTypeEngineOptions,
   IPublicModelDocumentModel,
@@ -21,7 +21,7 @@ import {
   IPublicApiWorkspace,
   IPublicEnumPluginRegisterLevel,
   IPublicModelPluginContext,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import {
   Designer,
   LowCodePluginManager,
@@ -29,16 +29,16 @@ import {
   ILowCodePluginContextApiAssembler,
   PluginPreference,
   IDesigner,
-} from '@alilc/lowcode-designer';
+} from '@gant-lowcode/lowcode-designer';
 import {
   Skeleton as InnerSkeleton,
   registerDefaults,
-} from '@alilc/lowcode-editor-skeleton';
+} from '@gant-lowcode/lowcode-editor-skeleton';
 import {
   Workspace as InnerWorkspace,
   Workbench as WorkSpaceWorkbench,
   IWorkspace,
-} from '@alilc/lowcode-workspace';
+} from '@gant-lowcode/lowcode-workspace';
 
 import {
   Hotkey,
@@ -55,8 +55,8 @@ import {
   Config,
   CommonUI,
   Command,
-} from '@alilc/lowcode-shell';
-import { isPlainObject } from '@alilc/lowcode-utils';
+} from '@gant-lowcode/lowcode-shell';
+import { isPlainObject } from '@gant-lowcode/lowcode-utils';
 import './modules/live-editing';
 import * as classes from './modules/classes';
 import symbols from './modules/symbols';
@@ -66,8 +66,8 @@ import { defaultPanelRegistry } from './inner-plugins/default-panel-registry';
 import { shellModelFactory } from './modules/shell-model-factory';
 import { builtinHotkey } from './inner-plugins/builtin-hotkey';
 import { defaultContextMenu } from './inner-plugins/default-context-menu';
-import { CommandPlugin } from '@alilc/lowcode-plugin-command';
-import { OutlinePlugin } from '@alilc/lowcode-plugin-outline-pane';
+import { CommandPlugin } from '@gant-lowcode/lowcode-plugin-command';
+import { OutlinePlugin } from '@gant-lowcode/lowcode-plugin-outline-pane';
 
 export * from './modules/skeleton-types';
 export * from './modules/designer-types';

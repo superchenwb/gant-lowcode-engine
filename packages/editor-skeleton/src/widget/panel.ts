@@ -1,9 +1,9 @@
 import { createElement, ReactNode } from 'react';
-import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
-import { uniqueId, createContent } from '@alilc/lowcode-utils';
-import { IPublicTypeHelpTipConfig, IPublicTypePanelConfig, IPublicTypeTitleContent } from '@alilc/lowcode-types';
+import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@gant-lowcode/lowcode-editor-core';
+import { uniqueId, createContent } from '@gant-lowcode/lowcode-utils';
+import { IPublicTypeHelpTipConfig, IPublicTypePanelConfig, IPublicTypeTitleContent } from '@gant-lowcode/lowcode-types';
 import { WidgetContainer } from './widget-container';
-import { getEvent } from '@alilc/lowcode-shell';
+import { getEvent } from '@gant-lowcode/lowcode-shell';
 import { TitledPanelView, TabsPanelView, PanelView } from '../components/widget-views';
 import { ISkeleton } from '../skeleton';
 import { composeTitle } from './utils';

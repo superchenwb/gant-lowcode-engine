@@ -4,7 +4,7 @@ import {
   IPublicTypeNpmInfo,
   IPublicTypeCompositeValue,
   isJSExpression,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 
 import _ from 'lodash';
 import changeCase from 'change-case';

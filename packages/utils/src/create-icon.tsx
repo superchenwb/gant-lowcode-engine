@@ -1,6 +1,6 @@
 import { isValidElement, ReactNode, createElement, cloneElement } from 'react';
 import { createFromIconfontCN } from '@ant-design/icons';
-import { IPublicTypeIconType } from '@alilc/lowcode-types';
+import { IPublicTypeIconType } from '@gant-lowcode/lowcode-types';
 import { isReactComponent } from './is-react';
 import { isESModule } from './is-es-module';
 import { SizePresets } from './svg-icon';

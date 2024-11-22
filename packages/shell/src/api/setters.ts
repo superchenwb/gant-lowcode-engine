@@ -1,7 +1,7 @@
-import { IPublicTypeCustomView, IPublicApiSetters, IPublicTypeRegisteredSetter } from '@alilc/lowcode-types';
-import { ISetters, globalContext, untracked } from '@alilc/lowcode-editor-core';
+import { IPublicTypeCustomView, IPublicApiSetters, IPublicTypeRegisteredSetter } from '@gant-lowcode/lowcode-types';
+import { ISetters, globalContext, untracked } from '@gant-lowcode/lowcode-editor-core';
 import { ReactNode } from 'react';
-import { getLogger } from '@alilc/lowcode-utils';
+import { getLogger } from '@gant-lowcode/lowcode-utils';
 
 const innerSettersSymbol = Symbol('setters');
 const settersSymbol = Symbol('setters');

@@ -1,6 +1,6 @@
 import requestIdleCallback, { cancelIdleCallback } from 'ric-shim';
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { uniqueId } from '@alilc/lowcode-utils';
+import { obx, computed, makeObservable } from '@gant-lowcode/lowcode-editor-core';
+import { uniqueId } from '@gant-lowcode/lowcode-utils';
 import { INodeSelector, IViewport } from '../simulator';
 import { INode } from '../document';
 

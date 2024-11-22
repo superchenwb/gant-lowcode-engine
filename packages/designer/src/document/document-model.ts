@@ -7,7 +7,7 @@ import {
   wrapWithEventSwitch,
   createModuleEventBus,
   IEventBus,
-} from '@alilc/lowcode-editor-core';
+} from '@gant-lowcode/lowcode-editor-core';
 import {
   IPublicTypeNodeData,
   IPublicTypeNodeSchema,
@@ -19,13 +19,13 @@ import {
   IPublicEnumTransformStage,
   IPublicTypeOnChangeOptions,
   IPublicTypeDisposable,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import type {
   IPublicTypeRootSchema,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import type {
   IDropLocation,
-} from '@alilc/lowcode-designer';
+} from '@gant-lowcode/lowcode-designer';
 import {
   uniqueId,
   isPlainObject,
@@ -36,7 +36,7 @@ import {
   isDragNodeObject,
   isDragNodeDataObject,
   isNode,
-} from '@alilc/lowcode-utils';
+} from '@gant-lowcode/lowcode-utils';
 import { IProject } from '../project';
 import { ISimulatorHost } from '../simulator';
 import type { IComponentMeta } from '../component-meta';

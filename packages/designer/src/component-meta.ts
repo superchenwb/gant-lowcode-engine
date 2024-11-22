@@ -13,9 +13,9 @@ import {
   IPublicTypeAdvanced,
   IPublicTypeDisposable,
   IPublicTypeLiveTextEditingConfig,
-} from '@alilc/lowcode-types';
-import { deprecate, isRegExp, isTitleConfig, isNode } from '@alilc/lowcode-utils';
-import { computed, createModuleEventBus, IEventBus } from '@alilc/lowcode-editor-core';
+} from '@gant-lowcode/lowcode-types';
+import { deprecate, isRegExp, isTitleConfig, isNode } from '@gant-lowcode/lowcode-utils';
+import { computed, createModuleEventBus, IEventBus } from '@gant-lowcode/lowcode-editor-core';
 import { Node, INode } from './document';
 import { Designer } from './designer';
 import {

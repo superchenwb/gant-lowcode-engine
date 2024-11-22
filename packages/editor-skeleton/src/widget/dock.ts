@@ -1,7 +1,7 @@
 import { ReactNode, createElement } from 'react';
-import { makeObservable, obx } from '@alilc/lowcode-editor-core';
-import { uniqueId, createContent } from '@alilc/lowcode-utils';
-import { getEvent } from '@alilc/lowcode-shell';
+import { makeObservable, obx } from '@gant-lowcode/lowcode-editor-core';
+import { uniqueId, createContent } from '@gant-lowcode/lowcode-utils';
+import { getEvent } from '@gant-lowcode/lowcode-shell';
 import { DockConfig } from '../types';
 import { ISkeleton } from '../skeleton';
 import { DockView, WidgetView } from '../components/widget-views';

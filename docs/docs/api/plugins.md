@@ -27,8 +27,8 @@ async function register(
 
 #### 简单示例
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@gant-lowcode/lowcode-engine';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const builtinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -60,8 +60,8 @@ await plugins.register(builtinPluginRegistry);
 ```
 #### 使用 exports 示例
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@gant-lowcode/lowcode-engine';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const PluginA = (ctx: IPublicModelPluginContext) => {
   return {
@@ -92,8 +92,8 @@ await plugins.register(PluginB);
 
 #### 设置兼容引擎版本示例
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@gant-lowcode/lowcode-engine';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext) => {
   return {
@@ -112,8 +112,8 @@ await plugins.register(BuiltinPluginRegistry);
 ```
 #### 设置插件参数版本示例
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { plugins } from '@gant-lowcode/lowcode-engine';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const BuiltinPluginRegistry = (ctx: IPublicModelPluginContext, options: any) => {
   return {

@@ -8,15 +8,15 @@ import {
   globalContext,
   engineConfig,
   makeObservable,
-} from '@alilc/lowcode-editor-core';
-import { Node, SettingField, isSettingField, INode } from '@alilc/lowcode-designer';
+} from '@gant-lowcode/lowcode-editor-core';
+import { Node, SettingField, isSettingField, INode } from '@gant-lowcode/lowcode-designer';
 import classNames from 'classnames';
 import { SettingsMain } from './main';
 import { SettingsPane } from './settings-pane';
 import { StageBox } from '../stage-box';
 import { SkeletonContext } from '../../context';
 import { intl } from '../../locale';
-import { createIcon } from '@alilc/lowcode-utils';
+import { createIcon } from '@gant-lowcode/lowcode-utils';
 
 interface ISettingsPrimaryPaneProps {
   engineEditor: Editor;

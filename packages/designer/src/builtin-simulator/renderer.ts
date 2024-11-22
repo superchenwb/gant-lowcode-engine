@@ -1,5 +1,5 @@
 import { Component } from '../simulator';
-import { IPublicTypeComponentInstance, IPublicTypeSimulatorRenderer } from '@alilc/lowcode-types';
+import { IPublicTypeComponentInstance, IPublicTypeSimulatorRenderer } from '@gant-lowcode/lowcode-types';
 
 export type BuiltinSimulatorRenderer = IPublicTypeSimulatorRenderer<Component, IPublicTypeComponentInstance>;
 

@@ -15,7 +15,7 @@ import {
   editorCabinSymbol,
   skeletonCabinSymbol,
   simulatorRenderSymbol,
-} from '@alilc/lowcode-shell';
+} from '@gant-lowcode/lowcode-shell';
 
 export default {
   projectSymbol,

@@ -6,7 +6,7 @@ import {
   InterpretDataSourceConfig,
   isJSExpression,
   isJSFunction,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import changeCase from 'change-case';
 
 import { CLASS_DEFINE_CHUNK_NAME, COMMON_CHUNK_NAME } from '../../../const/generator';

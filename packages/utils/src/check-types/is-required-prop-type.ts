@@ -1,4 +1,4 @@
-import { IPublicTypePropType, IPublicTypeRequiredType } from '@alilc/lowcode-types';
+import { IPublicTypePropType, IPublicTypeRequiredType } from '@gant-lowcode/lowcode-types';
 
 export function isRequiredPropType(propType: IPublicTypePropType): propType is IPublicTypeRequiredType {
   if (!propType) {

@@ -1,7 +1,7 @@
 // all this file for polyfill vision logic
 import { isValidElement } from 'react';
-import { IPublicTypeFieldConfig, IPublicTypeSetterConfig } from '@alilc/lowcode-types';
-import { isSetterConfig, isDynamicSetter } from '@alilc/lowcode-utils';
+import { IPublicTypeFieldConfig, IPublicTypeSetterConfig } from '@gant-lowcode/lowcode-types';
+import { isSetterConfig, isDynamicSetter } from '@gant-lowcode/lowcode-utils';
 import { ISettingField } from './setting-field';
 
 function getHotterFromSetter(setter) {

@@ -1,6 +1,6 @@
 import { skeletonItemSymbol } from '../symbols';
-import { IPublicModelSkeletonItem } from '@alilc/lowcode-types';
-import { Dock, IWidget, Panel, PanelDock, Stage, Widget } from '@alilc/lowcode-editor-skeleton';
+import { IPublicModelSkeletonItem } from '@gant-lowcode/lowcode-types';
+import { Dock, IWidget, Panel, PanelDock, Stage, Widget } from '@gant-lowcode/lowcode-editor-skeleton';
 
 export class SkeletonItem implements IPublicModelSkeletonItem {
   private [skeletonItemSymbol]: IWidget | Widget | Panel | Stage | Dock | PanelDock;

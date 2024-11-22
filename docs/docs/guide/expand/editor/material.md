@@ -45,7 +45,7 @@ export interface RemoteComponentDescription {
 这份资产包里的物料是我们内部沉淀出的，用户可以通过这套资产包体验引擎提供的搭建、配置能力。
 **_在项目中正常注册资产包：_**
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@gant-lowcode/lowcode-engine';
 // 以任何方式引入 assets
 material.setAssets(assets);
 ```
@@ -60,7 +60,7 @@ material.setAssets(assets);
 详细参考：[低代码生态脚手架 & 调试机制](https://lowcode-engine.cn/site/docs/guide/expand/editor/cli)
 
 ```typescript
-import { material } from '@alilc/lowcode-engine';
+import { material } from '@gant-lowcode/lowcode-engine';
 import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject';
 await material.setAssets(await injectAssets(assets));
 ```
@@ -270,8 +270,8 @@ npm publish
 
 ### 在项目中引入资产包
 ```typescript
-import { material, plugins } from '@alilc/lowcode-engine';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { material, plugins } from '@gant-lowcode/lowcode-engine';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 // 动态加载 assets
 plugins.register((ctx: IPublicModelPluginContext) => {

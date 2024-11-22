@@ -1,7 +1,7 @@
 import { KeyboardEvent, FocusEvent, Fragment, PureComponent, useState } from 'react';
 import classNames from 'classnames';
-import { createIcon } from '@alilc/lowcode-utils';
-import { IPublicApiEvent, IPublicModelNode } from '@alilc/lowcode-types';
+import { createIcon } from '@gant-lowcode/lowcode-utils';
+import { IPublicApiEvent, IPublicModelNode } from '@gant-lowcode/lowcode-types';
 import TreeNode from '../controllers/tree-node';
 import {
   IconLock,

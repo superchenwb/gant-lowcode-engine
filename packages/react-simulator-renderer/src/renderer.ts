@@ -16,11 +16,11 @@ import {
   isPlainObject,
   AssetLoader,
   getProjectUtils,
-} from '@alilc/lowcode-utils';
-import { IPublicTypeComponentSchema, IPublicEnumTransformStage, IPublicTypeNodeInstance, IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-utils';
+import { IPublicTypeComponentSchema, IPublicEnumTransformStage, IPublicTypeNodeInstance, IPublicTypeProjectSchema } from '@gant-lowcode/lowcode-types';
 // just use types
-import { BuiltinSimulatorRenderer, Component, IDocumentModel, INode } from '@alilc/lowcode-designer';
-import LowCodeRenderer from '@alilc/lowcode-react-renderer';
+import { BuiltinSimulatorRenderer, Component, IDocumentModel, INode } from '@gant-lowcode/lowcode-designer';
+import LowCodeRenderer from '@gant-lowcode/lowcode-react-renderer';
 import { createMemoryHistory, MemoryHistory } from 'history';
 import Slot from './builtin-components/slot';
 import Leaf from './builtin-components/leaf';

@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 # sync all packages to alibaba intranet registry
-tnpm sync @alilc/lowcode-types
-tnpm sync @alilc/lowcode-utils
-tnpm sync @alilc/lowcode-shell
-tnpm sync @alilc/lowcode-editor-core
-tnpm sync @alilc/lowcode-editor-skeleton
-tnpm sync @alilc/lowcode-designer
-tnpm sync @alilc/lowcode-plugin-designer
-tnpm sync @alilc/lowcode-plugin-outline-pane
-tnpm sync @alilc/lowcode-renderer-core
-tnpm sync @alilc/lowcode-react-renderer
-tnpm sync @alilc/lowcode-react-simulator-renderer
-tnpm sync @alilc/lowcode-engine
-tnpm sync @alilc/lowcode-workspace
-tnpm sync @alilc/lowcode-plugin-command
+tnpm sync @gant-lowcode/lowcode-types
+tnpm sync @gant-lowcode/lowcode-utils
+tnpm sync @gant-lowcode/lowcode-shell
+tnpm sync @gant-lowcode/lowcode-editor-core
+tnpm sync @gant-lowcode/lowcode-editor-skeleton
+tnpm sync @gant-lowcode/lowcode-designer
+tnpm sync @gant-lowcode/lowcode-plugin-designer
+tnpm sync @gant-lowcode/lowcode-plugin-outline-pane
+tnpm sync @gant-lowcode/lowcode-renderer-core
+tnpm sync @gant-lowcode/lowcode-react-renderer
+tnpm sync @gant-lowcode/lowcode-react-simulator-renderer
+tnpm sync @gant-lowcode/lowcode-engine
+tnpm sync @gant-lowcode/lowcode-workspace
+tnpm sync @gant-lowcode/lowcode-plugin-command

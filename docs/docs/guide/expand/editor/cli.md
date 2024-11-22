@@ -130,7 +130,7 @@ npm publish
 2. 在引擎初始化侧引入插件
   ```typescript
   import Inject, { injectAssets } from '@alilc/lowcode-plugin-inject';
-  import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+  import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
   export default async () => {
     // 注意 Inject 插件必须在其他插件前注册，且所有插件的注册必须 await

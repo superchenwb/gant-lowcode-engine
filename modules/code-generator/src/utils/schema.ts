@@ -11,7 +11,7 @@ import {
   IPublicTypeCompositeValue,
   isNodeSchema,
   isJSFunction,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { CodeGeneratorError } from '../types/error';
 import { isJSExpressionFn } from './common';
 

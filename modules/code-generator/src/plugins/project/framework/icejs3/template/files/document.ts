@@ -1,4 +1,4 @@
-import { ResultFile } from '@alilc/lowcode-types';
+import { ResultFile } from '@gant-lowcode/lowcode-types';
 import { createResultFile } from '../../../../../../utils/resultHelper';
 
 /* eslint-disable max-len */

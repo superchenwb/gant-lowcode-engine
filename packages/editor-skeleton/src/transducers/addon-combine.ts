@@ -2,9 +2,9 @@ import {
   IPublicTypeTransformedComponentMetadata,
   IPublicTypeFieldConfig,
   IPublicModelSettingField,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { IconSlot } from '../icons/slot';
-import { getConvertedExtraKey } from '@alilc/lowcode-designer';
+import { getConvertedExtraKey } from '@gant-lowcode/lowcode-designer';
 
 export default function (
   metadata: IPublicTypeTransformedComponentMetadata,

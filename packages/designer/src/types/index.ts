@@ -1,4 +1,4 @@
-import { isFormEvent, compatibleLegaoSchema, getNodeSchemaById, isNodeSchema } from '@alilc/lowcode-utils';
+import { isFormEvent, compatibleLegaoSchema, getNodeSchemaById, isNodeSchema } from '@gant-lowcode/lowcode-utils';
 
 export type NodeRemoveOptions = {
   suppressRemoveEvent?: boolean;

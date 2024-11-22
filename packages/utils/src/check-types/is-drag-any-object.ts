@@ -1,4 +1,4 @@
-import { IPublicEnumDragObjectType } from '@alilc/lowcode-types';
+import { IPublicEnumDragObjectType } from '@gant-lowcode/lowcode-types';
 import { isObject } from '../is-object';
 
 export function isDragAnyObject(obj: any): boolean {

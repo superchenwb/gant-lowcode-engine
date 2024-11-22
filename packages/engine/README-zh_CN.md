@@ -18,11 +18,11 @@
 
 [![](https://img.shields.io/badge/LowCodeEngine-%E6%9F%A5%E7%9C%8B%E8%B4%A1%E7%8C%AE%E6%8E%92%E8%A1%8C%E6%A6%9C-orange)](https://opensource.alibaba.com/contribution_leaderboard/details?projectValue=lowcode-engine)
 
-[npm-image]: https://img.shields.io/npm/v/@alilc/lowcode-engine.svg?style=flat-square
-[npm-url]: http://npmjs.org/package/@alilc/lowcode-engine
+[npm-image]: https://img.shields.io/npm/v/@gant-lowcode/lowcode-engine.svg?style=flat-square
+[npm-url]: http://npmjs.org/package/@gant-lowcode/lowcode-engine
 
-[download-image]: https://img.shields.io/npm/dm/@alilc/lowcode-engine.svg?style=flat-square
-[download-url]: https://npmjs.org/package/@alilc/lowcode-engine
+[download-image]: https://img.shields.io/npm/dm/@gant-lowcode/lowcode-engine.svg?style=flat-square
+[download-url]: https://npmjs.org/package/@gant-lowcode/lowcode-engine
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/alibaba/lowcode-engine/help%20wanted/open
 [help-wanted-url]: https://github.com/alibaba/lowcode-engine/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
 
@@ -59,13 +59,13 @@
 ## 🌰 使用示例
 
 ```bash
-npm install @alilc/lowcode-engine --save-dev
+npm install @gant-lowcode/lowcode-engine --save-dev
 ```
 
 > **TIPS：仅支持 cdn 方式引入，npm 包用于提供 typings 等代码提示能力**
 
 ```ts
-import { init, skeleton } from '@alilc/lowcode-engine';
+import { init, skeleton } from '@gant-lowcode/lowcode-engine';
 
 skeleton.add({
   area: 'topArea',
@@ -90,7 +90,7 @@ init(document.getElementById('lce'));
 ```json
 {
   "externals": {
-    "@alilc/lowcode-engine": "var window.AliLowCodeEngine",
+    "@gant-lowcode/lowcode-engine": "var window.AliLowCodeEngine",
     "@alilc/lowcode-engine-ext": "var window.AliLowCodeEngineExt"
   }
 }
@@ -99,30 +99,30 @@ init(document.getElementById('lce'));
 ### cdn 可选方式：
 #### 方式 1（推荐）：alifd cdn
 ```html
-https://alifd.alicdn.com/npm/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://alifd.alicdn.com/npm/@gant-lowcode/lowcode-engine@1.0.18/dist/js/engine-core.js
 
-https://alifd.alicdn.com/npm/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://alifd.alicdn.com/npm/@gant-lowcode/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### 方式 2（推荐）：uipaas cdn
 ```html
-https://uipaas-assets.com/prod/npm/@alilc/lowcode-engine/1.0.18/dist/js/engine-core.js
+https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-engine/1.0.18/dist/js/engine-core.js
 
-https://uipaas-assets.com/prod/npm/@alilc/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
+https://uipaas-assets.com/prod/npm/@gant-lowcode/lowcode-react-simulator-renderer/1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### 方式 3：unpkg
 ```html
-https://unpkg.com/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://unpkg.com/@gant-lowcode/lowcode-engine@1.0.18/dist/js/engine-core.js
 
-https://unpkg.com/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://unpkg.com/@gant-lowcode/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### 方式 4：jsdelivr
 ```html
-https://cdn.jsdelivr.net/npm/@alilc/lowcode-engine@1.0.18/dist/js/engine-core.js
+https://cdn.jsdelivr.net/npm/@gant-lowcode/lowcode-engine@1.0.18/dist/js/engine-core.js
 
-https://cdn.jsdelivr.net/npm/@alilc/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
+https://cdn.jsdelivr.net/npm/@gant-lowcode/lowcode-react-simulator-renderer@1.0.18/dist/js/react-simulator-renderer.js
 ```
 
 #### 方式 5：使用自有 cdn

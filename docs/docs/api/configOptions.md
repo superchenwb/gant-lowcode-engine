@@ -10,7 +10,7 @@ sidebar_position: 5
 #### init API
 
 ```javascript
-import { init } from '@alilc/lowcode-engine';
+import { init } from '@gant-lowcode/lowcode-engine';
 
 init(document.getElementById('engine'), {
   enableCondition: false,
@@ -22,7 +22,7 @@ init(document.getElementById('engine'), {
 #### config API
 
 ```javascript
-import { config } from '@alilc/lowcode-engine';
+import { config } from '@gant-lowcode/lowcode-engine';
 
 config.set('enableCondition', false)
 ```

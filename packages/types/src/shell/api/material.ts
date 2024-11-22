@@ -81,8 +81,8 @@ export interface IPublicApiMaterial {
    * @param action
    * @example
    * ```ts
-   * import { plugins } from '@alilc/lowcode-engine';
-   * import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+   * import { plugins } from '@gant-lowcode/lowcode-engine';
+   * import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
    *
    * const removeCopyAction = (ctx: IPublicModelPluginContext) => {
    *   return {

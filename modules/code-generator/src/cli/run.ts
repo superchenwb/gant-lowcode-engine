@@ -9,7 +9,7 @@ import * as path from 'path';
 import { getErrorMessage } from '../utils/errors';
 import CodeGenerator from '..';
 import type { IProjectBuilder } from '..';
-import type { IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+import type { IPublicTypeProjectSchema } from '@gant-lowcode/lowcode-types';
 
 /**
  * 执行出码 CLI 命令

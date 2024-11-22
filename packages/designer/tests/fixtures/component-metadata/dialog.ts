@@ -1,4 +1,4 @@
-import { IPublicTypeComponentMetadata } from "@alilc/lowcode-types";
+import { IPublicTypeComponentMetadata } from "@gant-lowcode/lowcode-types";
 export default {
   componentName: 'Dialog',
   npm: {

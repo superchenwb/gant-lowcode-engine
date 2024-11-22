@@ -1,4 +1,4 @@
-import { IPublicTypeProjectSchema } from "@alilc/lowcode-types";
+import { IPublicTypeProjectSchema } from "@gant-lowcode/lowcode-types";
 import { isProjectSchema } from "../../../src/check-types/is-project-schema";
 
 describe("isProjectSchema", () => {

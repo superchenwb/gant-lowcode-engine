@@ -1,4 +1,4 @@
-import { ResultDir, ResultFile, IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+import { ResultDir, ResultFile, IPublicTypeProjectSchema } from '@gant-lowcode/lowcode-types';
 
 import {
   IModuleBuilder,

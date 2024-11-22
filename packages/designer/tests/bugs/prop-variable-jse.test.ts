@@ -1,6 +1,6 @@
-import { Editor } from '@alilc/lowcode-editor-core';
-import { IPublicEnumTransformStage } from '@alilc/lowcode-types';
-import { isPlainObject, isVariable, isJSBlock } from '@alilc/lowcode-utils';
+import { Editor } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicEnumTransformStage } from '@gant-lowcode/lowcode-types';
+import { isPlainObject, isVariable, isJSBlock } from '@gant-lowcode/lowcode-utils';
 import '../fixtures/window';
 import { Designer } from '../../src/designer/designer';
 import { DocumentModel } from '../../src/document/document-model';

@@ -1,8 +1,8 @@
-import { BuiltinLoading } from '@alilc/lowcode-designer';
-import { engineConfig, observer } from '@alilc/lowcode-editor-core';
+import { BuiltinLoading } from '@gant-lowcode/lowcode-designer';
+import { engineConfig, observer } from '@gant-lowcode/lowcode-editor-core';
 import {
   Workbench,
-} from '@alilc/lowcode-editor-skeleton';
+} from '@gant-lowcode/lowcode-editor-skeleton';
 import { PureComponent } from 'react';
 import { Context } from '../context/view-context';
 

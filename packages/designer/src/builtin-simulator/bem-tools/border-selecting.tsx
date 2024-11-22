@@ -1,8 +1,8 @@
 import { Component, Fragment, isValidElement, cloneElement, createElement, ReactNode } from 'react';
 import classNames from 'classnames';
-import { observer, computed, Tip, engineConfig } from '@alilc/lowcode-editor-core';
-import { createIcon, isReactComponent, isActionContentObject } from '@alilc/lowcode-utils';
-import { IPublicTypeActionContentObject } from '@alilc/lowcode-types';
+import { observer, computed, Tip, engineConfig } from '@gant-lowcode/lowcode-editor-core';
+import { createIcon, isReactComponent, isActionContentObject } from '@gant-lowcode/lowcode-utils';
+import { IPublicTypeActionContentObject } from '@gant-lowcode/lowcode-types';
 import { BuiltinSimulatorHost } from '../host';
 import { INode, OffsetObserver } from '../../designer';
 import NodeSelector from '../node-selector';

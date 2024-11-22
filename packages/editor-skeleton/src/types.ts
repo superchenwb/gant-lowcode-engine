@@ -6,7 +6,7 @@ import {
   IPublicTypePanelDockProps,
   IPublicTypePanelConfigProps,
   IPublicTypePanelConfig,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { IWidget } from './widget/widget';
 
 export interface WidgetConfig extends IPublicTypeWidgetBaseConfig {

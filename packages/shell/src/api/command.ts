@@ -1,6 +1,6 @@
-import { IPublicApiCommand, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@alilc/lowcode-types';
+import { IPublicApiCommand, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@gant-lowcode/lowcode-types';
 import { commandSymbol, pluginContextSymbol } from '../symbols';
-import { ICommand, ICommandOptions } from '@alilc/lowcode-editor-core';
+import { ICommand, ICommandOptions } from '@gant-lowcode/lowcode-editor-core';
 
 const optionsSymbol = Symbol('options');
 const commandScopeSet = new Set<string>();

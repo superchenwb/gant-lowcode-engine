@@ -1,6 +1,6 @@
 import type { ComponentLifecycle, CSSProperties } from 'react';
-import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@alilc/lowcode-designer';
-import { RequestHandler, IPublicTypeNodeSchema, IPublicTypeRootSchema, IPublicTypeJSONObject } from '@alilc/lowcode-types';
+import { BuiltinSimulatorHost, BuiltinSimulatorRenderer } from '@gant-lowcode/lowcode-designer';
+import { RequestHandler, IPublicTypeNodeSchema, IPublicTypeRootSchema, IPublicTypeJSONObject } from '@gant-lowcode/lowcode-types';
 
 export type ISchema = IPublicTypeNodeSchema | IPublicTypeRootSchema;
 

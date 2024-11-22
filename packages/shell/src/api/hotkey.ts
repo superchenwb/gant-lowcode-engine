@@ -1,6 +1,6 @@
-import { globalContext, Hotkey as InnerHotkey } from '@alilc/lowcode-editor-core';
+import { globalContext, Hotkey as InnerHotkey } from '@gant-lowcode/lowcode-editor-core';
 import { hotkeySymbol } from '../symbols';
-import { IPublicTypeDisposable, IPublicTypeHotkeyCallback, IPublicTypeHotkeyCallbacks, IPublicApiHotkey } from '@alilc/lowcode-types';
+import { IPublicTypeDisposable, IPublicTypeHotkeyCallback, IPublicTypeHotkeyCallbacks, IPublicApiHotkey } from '@gant-lowcode/lowcode-types';
 
 const innerHotkeySymbol = Symbol('innerHotkey');
 

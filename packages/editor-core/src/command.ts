@@ -1,5 +1,5 @@
-import { IPublicApiCommand, IPublicEnumTransitionType, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@alilc/lowcode-types';
-import { checkPropTypes } from '@alilc/lowcode-utils';
+import { IPublicApiCommand, IPublicEnumTransitionType, IPublicModelPluginContext, IPublicTypeCommand, IPublicTypeCommandHandlerArgs, IPublicTypeListCommand } from '@gant-lowcode/lowcode-types';
+import { checkPropTypes } from '@gant-lowcode/lowcode-utils';
 export interface ICommand extends Omit<IPublicApiCommand, 'registerCommand' | 'batchExecuteCommand'> {
   registerCommand(command: IPublicTypeCommand, options?: {
     commandScope?: string;

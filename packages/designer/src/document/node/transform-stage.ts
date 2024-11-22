@@ -1,1 +1,1 @@
-export { TransformStage } from '@alilc/lowcode-types';
+export { TransformStage } from '@gant-lowcode/lowcode-types';

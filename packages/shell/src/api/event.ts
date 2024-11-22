@@ -1,6 +1,6 @@
-import { IEditor, IEventBus } from '@alilc/lowcode-editor-core';
-import { getLogger, isPluginEventName } from '@alilc/lowcode-utils';
-import { IPublicApiEvent, IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IEditor, IEventBus } from '@gant-lowcode/lowcode-editor-core';
+import { getLogger, isPluginEventName } from '@gant-lowcode/lowcode-utils';
+import { IPublicApiEvent, IPublicTypeDisposable } from '@gant-lowcode/lowcode-types';
 
 const logger = getLogger({ level: 'warn', bizName: 'shell-event' });
 

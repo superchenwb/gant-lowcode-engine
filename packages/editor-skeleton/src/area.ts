@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { obx, computed, makeObservable } from '@alilc/lowcode-editor-core';
-import { Logger } from '@alilc/lowcode-utils';
-import { IPublicTypeWidgetBaseConfig } from '@alilc/lowcode-types';
+import { obx, computed, makeObservable } from '@gant-lowcode/lowcode-editor-core';
+import { Logger } from '@gant-lowcode/lowcode-utils';
+import { IPublicTypeWidgetBaseConfig } from '@gant-lowcode/lowcode-types';
 import { WidgetContainer } from './widget/widget-container';
 import { ISkeleton } from './skeleton';
 import { IWidget } from './widget/widget';

@@ -1,7 +1,7 @@
-import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
+import { obx, computed, makeObservable, IEventBus, createModuleEventBus } from '@gant-lowcode/lowcode-editor-core';
 import { Node, INode } from './node';
-import { IPublicTypeNodeData, IPublicModelNodeChildren, IPublicEnumTransformStage, IPublicTypeDisposable } from '@alilc/lowcode-types';
-import { shallowEqual, compatStage, isNodeSchema } from '@alilc/lowcode-utils';
+import { IPublicTypeNodeData, IPublicModelNodeChildren, IPublicEnumTransformStage, IPublicTypeDisposable } from '@gant-lowcode/lowcode-types';
+import { shallowEqual, compatStage, isNodeSchema } from '@gant-lowcode/lowcode-utils';
 import { foreachReverse } from '../../utils/tree';
 import { NodeRemoveOptions } from '../../types';
 

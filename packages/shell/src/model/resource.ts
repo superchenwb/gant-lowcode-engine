@@ -1,5 +1,5 @@
-import { IPublicModelResource } from '@alilc/lowcode-types';
-import { IResource } from '@alilc/lowcode-workspace';
+import { IPublicModelResource } from '@gant-lowcode/lowcode-types';
+import { IResource } from '@gant-lowcode/lowcode-workspace';
 import { resourceSymbol } from '../symbols';
 
 export class Resource implements IPublicModelResource {

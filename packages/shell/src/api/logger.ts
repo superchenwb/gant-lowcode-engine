@@ -1,6 +1,6 @@
 
-import { getLogger } from '@alilc/lowcode-utils';
-import { IPublicApiLogger, ILoggerOptions } from '@alilc/lowcode-types';
+import { getLogger } from '@gant-lowcode/lowcode-utils';
+import { IPublicApiLogger, ILoggerOptions } from '@gant-lowcode/lowcode-types';
 
 const innerLoggerSymbol = Symbol('logger');
 

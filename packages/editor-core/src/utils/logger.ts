@@ -1,4 +1,4 @@
-import { Logger, Level } from '@alilc/lowcode-utils';
+import { Logger, Level } from '@gant-lowcode/lowcode-utils';
 
 export { Logger };
 

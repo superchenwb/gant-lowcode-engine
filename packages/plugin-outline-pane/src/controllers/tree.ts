@@ -1,5 +1,5 @@
 import TreeNode from './tree-node';
-import { IPublicModelNode, IPublicTypePropChangeOptions } from '@alilc/lowcode-types';
+import { IPublicModelNode, IPublicTypePropChangeOptions } from '@gant-lowcode/lowcode-types';
 import { IOutlinePanelPluginContext, TreeMaster } from './tree-master';
 
 export class Tree {

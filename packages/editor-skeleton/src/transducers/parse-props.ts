@@ -10,7 +10,7 @@ import {
   IPublicTypeOneOfType,
   ConfigureSupportEvent,
   IPublicModelSettingField,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 
 function propConfigToFieldConfig(propConfig: IPublicTypePropConfig): IPublicTypeFieldConfig {
   const { name, description } = propConfig;

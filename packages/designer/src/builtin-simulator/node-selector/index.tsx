@@ -1,7 +1,7 @@
 import React, { MouseEvent, useEffect, useRef, useState } from 'react';
-import { Title, observer } from '@alilc/lowcode-editor-core';
-import { INode } from '@alilc/lowcode-designer';
-import { canClickNode } from '@alilc/lowcode-utils';
+import { Title, observer } from '@gant-lowcode/lowcode-editor-core';
+import { INode } from '@gant-lowcode/lowcode-designer';
+import { canClickNode } from '@gant-lowcode/lowcode-utils';
 import './index.less';
 
 const useMouseHover = <T extends { current: HTMLDivElement | null }>(

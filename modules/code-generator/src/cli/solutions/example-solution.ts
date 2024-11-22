@@ -560,7 +560,7 @@ codealike.json
   },
   "dependencies": {
     "@alilc/lowcode-code-generator": "^1.0.0",
-    "@alilc/lowcode-types": "^1.0.0",
+    "@gant-lowcode/lowcode-types": "^1.0.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

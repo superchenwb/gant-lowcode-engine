@@ -1,5 +1,5 @@
-import { isLocationChildrenDetail } from '@alilc/lowcode-utils';
-import { IPublicModelDropLocation, IPublicModelNode } from '@alilc/lowcode-types';
+import { isLocationChildrenDetail } from '@gant-lowcode/lowcode-utils';
+import { IPublicModelDropLocation, IPublicModelNode } from '@gant-lowcode/lowcode-types';
 
 
 const IndentSensitive = 15;

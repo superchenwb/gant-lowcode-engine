@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { IconArrow } from '../../icons/arrow';
 import { IconExit } from '../../icons/exit';
 import { Stage as StageWidget } from '../../widget/stage';
-import { isTitleConfig } from '@alilc/lowcode-utils';
+import { isTitleConfig } from '@gant-lowcode/lowcode-utils';
 
 export const StageDefaultProps = {
   current: false,

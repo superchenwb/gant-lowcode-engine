@@ -1,4 +1,4 @@
-import { ActivityType, IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@alilc/lowcode-types';
+import { ActivityType, IPublicTypeNodeSchema, IPublicTypeRootSchema } from '@gant-lowcode/lowcode-types';
 import { isJSBlock, isJSSlot } from './check-types';
 import { isVariable } from './misc';
 import { isPlainObject } from './is-plain-object';

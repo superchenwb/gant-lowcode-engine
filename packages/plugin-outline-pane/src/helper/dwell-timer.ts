@@ -1,5 +1,5 @@
-import { isLocationChildrenDetail } from '@alilc/lowcode-utils';
-import { IPublicModelNode, IPublicModelDropLocation, IPublicModelLocateEvent } from '@alilc/lowcode-types';
+import { isLocationChildrenDetail } from '@gant-lowcode/lowcode-utils';
+import { IPublicModelNode, IPublicModelDropLocation, IPublicModelLocateEvent } from '@gant-lowcode/lowcode-types';
 
 
 /**

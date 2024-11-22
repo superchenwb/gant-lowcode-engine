@@ -13,7 +13,7 @@ import {
 
 import CodeGenerator from '../../../src';
 
-import type { IPublicTypeProjectSchema } from '@alilc/lowcode-types';
+import type { IPublicTypeProjectSchema } from '@gant-lowcode/lowcode-types';
 
 jest.setTimeout(15 * 1000);
 

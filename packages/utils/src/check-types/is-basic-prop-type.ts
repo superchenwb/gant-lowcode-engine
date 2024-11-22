@@ -1,4 +1,4 @@
-import { IPublicTypeBasicType, IPublicTypePropType } from '@alilc/lowcode-types';
+import { IPublicTypeBasicType, IPublicTypePropType } from '@gant-lowcode/lowcode-types';
 
 export function isBasicPropType(propType: IPublicTypePropType): propType is IPublicTypeBasicType {
   if (!propType) {

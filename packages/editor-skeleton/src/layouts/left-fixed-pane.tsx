@@ -1,9 +1,9 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@gant-lowcode/lowcode-editor-core';
 import { Area } from '../area';
 import { Panel } from '../widget/panel';
-import { IPublicTypePanelConfig } from '@alilc/lowcode-types';
+import { IPublicTypePanelConfig } from '@gant-lowcode/lowcode-types';
 
 @observer
 export default class LeftFixedPane extends Component<{ area: Area<IPublicTypePanelConfig, Panel> }> {

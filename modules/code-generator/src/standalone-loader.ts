@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import type { IPublicTypeProjectSchema, ResultDir } from '@alilc/lowcode-types';
+import type { IPublicTypeProjectSchema, ResultDir } from '@gant-lowcode/lowcode-types';
 import type { FlattenFile } from './types/file';
 
 declare const Worker: any;

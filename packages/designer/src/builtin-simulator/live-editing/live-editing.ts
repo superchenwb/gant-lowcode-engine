@@ -1,5 +1,5 @@
-import { obx } from '@alilc/lowcode-editor-core';
-import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@alilc/lowcode-types';
+import { obx } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicTypePluginConfig, IPublicTypeLiveTextEditingConfig } from '@gant-lowcode/lowcode-types';
 import { INode, Prop } from '../../document';
 
 const EDITOR_KEY = 'data-setter-prop';

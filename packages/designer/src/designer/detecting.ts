@@ -1,5 +1,5 @@
-import { makeObservable, obx, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
-import { IPublicModelDetecting } from '@alilc/lowcode-types';
+import { makeObservable, obx, IEventBus, createModuleEventBus } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicModelDetecting } from '@gant-lowcode/lowcode-types';
 import type { IDocumentModel } from '../document/document-model';
 import type { INode } from '../document/node/node';
 

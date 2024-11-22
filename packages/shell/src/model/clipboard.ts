@@ -1,6 +1,6 @@
-import { IPublicModelClipboard } from '@alilc/lowcode-types';
+import { IPublicModelClipboard } from '@gant-lowcode/lowcode-types';
 import { clipboardSymbol } from '../symbols';
-import { IClipboard, clipboard } from '@alilc/lowcode-designer';
+import { IClipboard, clipboard } from '@gant-lowcode/lowcode-designer';
 
 export class Clipboard implements IPublicModelClipboard {
   private readonly [clipboardSymbol]: IClipboard;

@@ -1,4 +1,4 @@
-import { ResultFile } from '@alilc/lowcode-types';
+import { ResultFile } from '@gant-lowcode/lowcode-types';
 
 export default function getFile(): [string[], ResultFile] {
   return [

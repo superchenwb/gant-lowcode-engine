@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import classNames from 'classnames';
-import { observer } from '@alilc/lowcode-editor-core';
+import { observer } from '@gant-lowcode/lowcode-editor-core';
 import { Area } from '../area';
 
 @observer

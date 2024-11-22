@@ -1,8 +1,8 @@
 import { Component, Fragment, PureComponent } from 'react';
 import classNames from 'classnames';
-import { computed, observer, Title } from '@alilc/lowcode-editor-core';
-import { IPublicTypeTitleContent } from '@alilc/lowcode-types';
-import { getClosestNode } from '@alilc/lowcode-utils';
+import { computed, observer, Title } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicTypeTitleContent } from '@gant-lowcode/lowcode-types';
+import { getClosestNode } from '@gant-lowcode/lowcode-utils';
 import { intl } from '../../locale';
 import { BuiltinSimulatorHost } from '../host';
 

@@ -1,4 +1,4 @@
-import { IPublicTypeNodeSchema, IPublicTypeCompositeValue } from '@alilc/lowcode-types';
+import { IPublicTypeNodeSchema, IPublicTypeCompositeValue } from '@gant-lowcode/lowcode-types';
 import { HandlerSet, BaseGenerator, NodeGenerator } from './core';
 
 export enum PIECE_TYPE {

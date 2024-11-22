@@ -2,11 +2,11 @@ import {
   IDragon,
   ILocateEvent as InnerLocateEvent,
   INode,
-} from '@alilc/lowcode-designer';
+} from '@gant-lowcode/lowcode-designer';
 import { dragonSymbol, nodeSymbol } from '../symbols';
 import LocateEvent from './locate-event';
 import { DragObject } from './drag-object';
-import { globalContext } from '@alilc/lowcode-editor-core';
+import { globalContext } from '@gant-lowcode/lowcode-editor-core';
 import {
   IPublicModelDragon,
   IPublicModelLocateEvent,
@@ -14,7 +14,7 @@ import {
   IPublicTypeDragNodeDataObject,
   IPublicModelNode,
   IPublicTypeDragObject,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 
 export const innerDragonSymbol = Symbol('innerDragonSymbol');
 

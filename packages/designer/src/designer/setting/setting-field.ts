@@ -9,16 +9,16 @@ import {
   IPublicTypeDisposable,
   IPublicModelSettingField,
   IBaseModelSettingField,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import type {
   IPublicTypeSetValueOptions,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { Transducer } from './utils';
 import { ISettingPropEntry, SettingPropEntry } from './setting-prop-entry';
-import { computed, obx, makeObservable, action, untracked, intl } from '@alilc/lowcode-editor-core';
-import { cloneDeep, isCustomView, isDynamicSetter, isJSExpression } from '@alilc/lowcode-utils';
+import { computed, obx, makeObservable, action, untracked, intl } from '@gant-lowcode/lowcode-editor-core';
+import { cloneDeep, isCustomView, isDynamicSetter, isJSExpression } from '@gant-lowcode/lowcode-utils';
 import { ISettingTopEntry } from './setting-top-entry';
-import { IComponentMeta, INode } from '@alilc/lowcode-designer';
+import { IComponentMeta, INode } from '@gant-lowcode/lowcode-designer';
 
 function getSettingFieldCollectorKey(parent: ISettingTopEntry | ISettingField, config: IPublicTypeFieldConfig) {
   let cur = parent;
@@ -316,7 +316,7 @@ export class SettingField extends SettingPropEntry implements ISettingField {
 }
 
 /**
- * @deprecated use same function from '@alilc/lowcode-utils' instead
+ * @deprecated use same function from '@gant-lowcode/lowcode-utils' instead
  */
 export function isSettingField(obj: any): obj is ISettingField {
   return obj && obj.isSettingField;

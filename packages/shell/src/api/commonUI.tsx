@@ -1,10 +1,10 @@
-import { IPublicApiCommonUI, IPublicModelPluginContext, IPublicTypeContextMenuAction } from '@alilc/lowcode-types';
+import { IPublicApiCommonUI, IPublicModelPluginContext, IPublicTypeContextMenuAction } from '@gant-lowcode/lowcode-types';
 import {
   HelpTip,
   IEditor,
   Tip as InnerTip,
   Title as InnerTitle,
- } from '@alilc/lowcode-editor-core';
+ } from '@gant-lowcode/lowcode-editor-core';
 import { Balloon, Breadcrumb, Button, Card, Checkbox, DatePicker, Dialog, Dropdown, Form, Icon, Input, Loading, Message, Overlay, Pagination, Radio, Search, Select, SplitButton, Step, Switch, Tab, Table, Tree, TreeSelect, Upload, Divider } from '@alifd/next';
 import { ContextMenu } from '../components/context-menu';
 import { editorSymbol } from '../symbols';

@@ -5,7 +5,7 @@ import TreeView from './tree';
 import Filter from './filter';
 import { TreeMaster } from '../controllers/tree-master';
 import { Tree } from '../controllers/tree';
-import { IPublicTypeDisposable } from '@alilc/lowcode-types';
+import { IPublicTypeDisposable } from '@gant-lowcode/lowcode-types';
 import { CloseOutlined } from '@ant-design/icons';
 import './style.less';
 import { Button } from 'antd';

@@ -33,7 +33,7 @@ sidebar_position: 1
 2. 注册插件：
 
 ```typescript
-import { plugins } from '@alilc/lowcode-engine';
+import { plugins } from '@gant-lowcode/lowcode-engine';
 import CodeGenPlugin from '@alilc/lowcode-plugin-code-generator';
 
 // 在你的初始化函数中：

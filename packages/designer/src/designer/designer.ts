@@ -7,7 +7,7 @@ import {
   IReactionPublic,
   IReactionOptions,
   IReactionDisposer,
-} from '@alilc/lowcode-editor-core';
+} from '@gant-lowcode/lowcode-editor-core';
 import {
   IPublicTypeProjectSchema,
   IPublicTypeComponentMetadata,
@@ -25,7 +25,7 @@ import {
   IPublicTypeLocationData,
   IPublicEnumTransformStage,
   IPublicModelLocateEvent,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import {
   mergeAssets,
   IPublicTypeAssetsJson,
@@ -34,7 +34,7 @@ import {
   isDragNodeDataObject,
   isLocationChildrenDetail,
   Logger,
-} from '@alilc/lowcode-utils';
+} from '@gant-lowcode/lowcode-utils';
 import { IProject, Project } from '../project';
 import { Node, DocumentModel, insertChildren, INode, ISelection } from '../document';
 import { ComponentMeta, IComponentMeta } from '../component-meta';

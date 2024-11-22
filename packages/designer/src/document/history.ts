@@ -1,6 +1,6 @@
-import { reaction, untracked, IEventBus, createModuleEventBus } from '@alilc/lowcode-editor-core';
-import { IPublicTypeNodeSchema, IPublicModelHistory, IPublicTypeDisposable } from '@alilc/lowcode-types';
-import { Logger } from '@alilc/lowcode-utils';
+import { reaction, untracked, IEventBus, createModuleEventBus } from '@gant-lowcode/lowcode-editor-core';
+import { IPublicTypeNodeSchema, IPublicModelHistory, IPublicTypeDisposable } from '@gant-lowcode/lowcode-types';
+import { Logger } from '@gant-lowcode/lowcode-utils';
 import { IDocumentModel } from '../designer';
 
 const logger = new Logger({ level: 'warn', bizName: 'history' });

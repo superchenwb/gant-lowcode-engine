@@ -1,4 +1,4 @@
-import { cloneEnumerableProperty } from '@alilc/lowcode-utils';
+import { cloneEnumerableProperty } from '@gant-lowcode/lowcode-utils';
 import adapter from '../adapter';
 import { IBaseRendererInstance, IRendererProps } from '../types';
 

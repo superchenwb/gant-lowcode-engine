@@ -1,4 +1,4 @@
-import { getLogger, Logger } from '@alilc/lowcode-utils';
+import { getLogger, Logger } from '@gant-lowcode/lowcode-utils';
 import {
   ILowCodePluginRuntime,
   ILowCodePluginManager,
@@ -6,7 +6,7 @@ import {
 import {
   IPublicTypePluginConfig,
   IPublicTypePluginMeta,
-} from '@alilc/lowcode-types';
+} from '@gant-lowcode/lowcode-types';
 import { invariant } from '../utils';
 
 export class LowCodePluginRuntime implements ILowCodePluginRuntime {

@@ -157,7 +157,7 @@ Demo 根据**不同的设计器所需要的物料不同**，分为了下面的 8
 
 ```javascript
 import * as React from 'react';
-import { IPublicModelPluginContext } from '@alilc/lowcode-types';
+import { IPublicModelPluginContext } from '@gant-lowcode/lowcode-types';
 
 const LowcodePluginPluginDemo = (ctx: IPublicModelPluginContext) => {
   return {
